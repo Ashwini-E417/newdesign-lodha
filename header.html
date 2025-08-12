@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <style>
+        @font-face {
+            font-family: "Futura BK BT";
+            src: url("/assets/fonts/Futura BK BT Book.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+        a,button {
+            all: unset;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Futura Bk BT",sans-serif;
+            font-size: 1rem;
+        }
+        header {
+            width: 100%;
+            background-color: rgba(31, 25, 20, 0.50);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 101;
+        }
+        
+        header.hide {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        nav {
+            padding: 1rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: padding 0.3s ease;
+        }
+
+        .headerLogo {
+            width: 163px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        header.visible .headerLogo {
+            transform: scale(1.02);
+        }
+        
+        .desktop-Ivr {
+            display: flex;
+            gap: 10%;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .nav-MobileBtn {
+            color: #fff;
+            background-color: transparent;
+            border: 0;
+            display: flex;
+            flex-direction: row;
+            gap: 1%;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .nav-MobileBtn:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-WhatsappBtn {
+            border: 0;
+            background-color: transparent;
+            color: #fff;
+            display: flex;
+            gap: 1%;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .nav-WhatsappBtn:hover {
+            transform: scale(1.05);
+        }
+        
+        .bannerImage {
+            width: 100%;
+            display: block;
+            height: 90vh;
+        }
+        .secondary-NavigationContainer {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .secondary-Navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5rem;
+            background-color: rgb(255,255,255,0.5);
+            box-shadow: 0px 4px 20px 0px #0000000f;
+        }
+        .secondary-NavbarFlexContainer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            color: #6d6e70;
+            font-size: 0.9rem;
+        }
+        .nav-item {
+            cursor: pointer;
+        }
+        .nav-item.nav-active, .nav-item:hover {
+            color: #9d7f19;
+        }
+        .desktop-secondIvr {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .nav-MobileBtn2 {
+            display: flex;
+            align-items: center;
+            gap: 1%;
+            justify-content: center;
+            border: 0;
+            background-color: transparent;
+            padding: 0;
+            color: #6d6e70;
+        }
+        .nav-MobileBtn2 span,.nav-WhatsappBtn2 span {
+            font-size: 0.9rem;
+        }
+        .nav-WhatsappBtn2 {
+            display: flex;
+            align-items: center;
+            gap: 1%;
+            justify-content: center;
+            border: 0;
+            background-color: transparent;
+            padding: 0;
+            color: #6d6e70;
+        }
+        .MenuBtn {
+            display: none;
+        }
+        .sidebar {
+            display: none;
+        }
+        @media (max-width:768px) {
+            .MenuBtn {
+                display: block;
+            }
+            .nav-MobileBtn,.nav-WhatsappBtn {
+                display: none;
+            }
+            nav {
+                padding: 1rem;
+            }
+            .secondary-NavigationContainer {
+                display: none;
+            }
+            .bannerImage {
+                height: 70vh;
+            }
+            .sidebar {
+                width: 100vw;
+                height: 100vh;
+                background-color: #fff;
+                position: fixed;
+                top: 0;
+                padding: 2rem 1rem;
+                text-align: center;
+                transition: transform 0.3 ease-in-out;
+                transform: translateX(-100%);
+            }
+            .sidebar.active {
+                transform: translateX(0%);
+            }
+            .nav-item {
+                padding: 1rem 0;
+                display: block;
+                color: #000;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/images/logo/logo.webp" alt="Logo" class="headerLogo" />
+            <span class="desktop-Ivr">
+                <button class="nav-MobileBtn"><img src="assets/images/icons/phoneIcoon.gif" alt="Call on " width="30" height="30"><span>+919876543210</span></button>
+                <button class="nav-WhatsappBtn"><img src="assets/images/icons/whatsappIcon.gif" alt="Chat On" width="30" height="30"><span>Whatsapp</span></button>
+                <button class="MenuBtn">Menu</button>
+            </span>
+        </nav>
+        <div class="sidebar">
+            <img src="assets/images/logo/logo.webp" alt="Logo of Lodha" class="headerLogo" loading="lazy"/>
+            <br><br>
+            <span class="mobile-navbar" role="menubar">
+                <a href="#" class="nav-item nav-active" title="Overview" aria-label="Overview" role="menuitem">Overview</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Price Plan</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Amenities</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Floor Plan</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Gallery</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Location</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Brochure</a>
+            </span>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="bannerContainer">
+                <div class="bannerSlide">
+                    <div class="banner">
+                        <img src="assets/images/banner/banner.webp" alt="Banner Image" class="bannerImage" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <section class="secondary-NavigationContainer">
+            <div class="secondary-Navbar">
+                <span class="secondary-NavbarFlexContainer">
+                <a href="#" class="nav-item nav-active" title="Overview" aria-label="Overview">Overview</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview">Price Plan</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview">Amenities</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview">Floor Plan</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview">Gallery</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview">Location</a>
+                <a href="#" class="nav-item" title="Overview" aria-label="Overview">Brochure</a>
+                </span>
+                <span class="desktop-secondIvr">
+                <button class="nav-MobileBtn2"><img src="assets/images/icons/phoneblack.gif" alt="Call on " width="25" height="25"><span>+919876543210</span></button>
+                <button class="nav-WhatsappBtn2"><img src="assets/images/icons/whatsappblack.gif" alt="Chat On" width="25" height="25"><span>Whatsapp</span></button>
+            </span>
+            </div>
+        </section>
+    <section class="dummy" style="height: 1000rem; width: 100%; content: '';"></section>
+
+    <!-- <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const nav = document.querySelector("header");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                nav.classList.add("visible");  // fade in
+            } else {
+                nav.classList.remove("visible"); // fade out
+            }
+        });
+    }, { threshold: 0.1 }); // triggers when 10% is visible
+
+    observer.observe(nav);
+});
+
+        </script> -->
+
+        <script>
+            window.addEventListener("scroll",(e)=>{
+                e.preventDefault();
+                if (window.scrollY>=(window.innerHeight*0.5)) {
+                    document.querySelector('header').classList.remove("visible");
+                }
+                else {
+                    document.querySelector('header').classList.add("visible");
+                }
+            })
+
+            window.addEventListener("load",(e)=>{
+                e.preventDefault();
+                if (window.scrollY<=(window.innerHeight*0.5)) {
+                    document.querySelector('header').classList.add("visible");
+                }
+            })
+
+            document.querySelector(".MenuBtn").addEventListener("click",()=>{
+                document.querySelector(".sidebar").classList.toggle("active");
+            })
+
+        </script>
+</body>
+</html>
