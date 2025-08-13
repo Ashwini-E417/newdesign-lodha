@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Header</title>
 <link rel="stylesheet" href="assets/css/style.css">
+<!-- <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> -->
 <style>
     
 
@@ -364,7 +365,7 @@ header.white .burgerMenu span {
         <div class="overview-Container">
             <h2 class="section-heading">Overview</h2>
             <p class="section-subheading">Welcome to Lodha Riservo Vikhroli</p>
-            <p class="clamptext">Lodha office spaces mark a new chapter in India's commercial real estate landscape. Leveraging our expertise in redefining residential living through iconic addresses, Lodha now emerges as a formidable presence in the commercial sector.
+            <p class="clamptext">An exclusive Lodha office spaces mark a new chapter in India's commercial real estate landscape. Leveraging our expertise in redefining residential living through iconic addresses, Lodha now emerges as a formidable presence in the commercial sector.
                 <br><br>
             In anticipation of India's potential as a global technology and business hub, we lead with innovative solutions. Our meticulously crafted workplaces promote collaboration and productivity, featuring state-of-the-art amenities and cutting-edge technology to cater to leading global giants and Fortune 500 companies. Committed to excellence, , we go beyond mere construction to create dynamic ecosystems where individuals, businesses, and communities can flourish. With our forward-thinking approach, we not only address present needs but also pave the way for the future of the nation.</p>
             <a href="#" class="readMoreLink"> Read More </a>
@@ -382,16 +383,28 @@ header.white .burgerMenu span {
                 <img src="assets/images/banner/banner.webp" alt="Highlights of Lodha" loading="lazy" class="highlightImage siteVisitImage" data-aos="fade-left"/>
             </div>
             <div class="highlight-listContainer">
-                <h2 class="section-heading" style="text-align: center;">Project Highlights</h2>
-                <p class="section-subheading"></p>
+                <h2 class="section-heading fade-up" 
+                    data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                    Project Highlights
+                </h2>
                 <ul class="highlight-list">
-                    <li>Exclusive Doctors' Enclave units available</li>
-                    <li>Excellent connectivity to various parts of the city</li>
-                    <li>Prime location in Matunga, near Eastern Express Highway</li>
-                    <li>High-value appreciation & rental yield as the only premium commercial development in the area</li>
+                    <li class="fade-up" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                        Exclusive Doctors' Enclave units available
+                    </li>
+                    <li class="fade-up" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                        Excellent connectivity to various parts of the city
+                    </li>
+                    <li class="fade-up" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                        Prime location in Matunga, near Eastern Express Highway
+                    </li>
+                    <li class="fade-up" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                        High-value appreciation & rental yield as the only premium commercial development in the area
+                    </li>
                 </ul>
                 <div style="text-align: center;">
-                <button class="highlightDeskBtn">Know More</button>
+                    <button class="highlightDeskBtn">
+                        Know More
+                    </button>
                 </div>
             </div>
             
@@ -468,7 +481,10 @@ window.addEventListener("load",(e)=>{
 </script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init();
+  AOS.init({
+    once:false,
+    // mirror: true
+  });
 </script>
 </body>
 </html>
