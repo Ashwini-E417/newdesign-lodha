@@ -149,7 +149,6 @@
         /* Site Visit Image Animation - Slide Left to Right */
 .siteVisitImage {
   max-width: 100%;
-  height: auto;
   display: block;
   border: 0;
 
@@ -174,4 +173,160 @@
 [data-aos^=fade][data-aos^=fade].aos-animate {
   opacity: 1;
   transform: translateZ(0);
+}
+
+
+
+/* Banner content Css */
+.design2 {
+            backdrop-filter: blur(8px);
+            background: #ffffffde;
+            border-radius: 24px;
+            padding: 1.5rem 1rem;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            max-width: 290px;
+            width: 100%;
+            color: white;
+            position: relative;
+            border: 1px solid rgba(198, 169, 97, 0.3);
+        }
+
+        .design2 .heading {
+            font-size: 2rem;
+            font-weight: 700;
+            /* background: linear-gradient(135deg, #9d7f19, #f4e49c); */
+            background: #9d7f19;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .design2 .location {
+            font-size: 1.2rem;
+            color: #6d6e70;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .design2 .location::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: #9d7f19;
+        }
+
+        .design2 .offers {
+            margin: 1rem 0;
+        }
+
+        .design2 .offer-item {
+            background: rgba(198, 169, 97, 0.1);
+            margin-bottom: 1rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #9d7f19;
+            color: #6d6e70;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .design2 .offer-item .offer-list::before {
+            content: '✓';
+            color: #9d7f19;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .design2 .offer-item:hover {
+            background: rgba(198, 169, 97, 0.15);
+            transform: translateX(8px);
+        }
+
+        .design2 .price-section {
+            text-align: center;
+            margin: 0.7rem 0;
+            padding: 1rem 0rem;
+            /* background: rgba(255, 255, 255, 0.05); */
+            /* border-radius: 16px;
+            border: 1px solid #9d7f19; */
+        }
+
+        .design2 .price-label {
+            font-size: 1rem;
+            color: #6d6e70;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+
+        .design2 .price {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #9d7f19;
+            margin-bottom: 0.25rem;
+        }
+
+        .design2 .price-suffix {
+            font-size: 1rem;
+            color: #6d6e70;
+            font-weight: 400;
+        }
+
+        .design2 .cta-btn {
+            /* width: 100%; */
+            padding: 10px 20px;
+            background: transparent;
+            color: #9d7f19;
+            border: 1px solid #9d7f19;
+            /* border-radius: 12px; */
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* text-transform: uppercase; */
+            /* letter-spacing: 1px; */
+        }
+
+        .design2 .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(198, 169, 97, 0.4);
+        }
+        @media (max-width: 768px) {
+            
+            .design2 {
+                max-width: 100%;
+                background: #fff;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+           
+            .design2 .heading {
+                font-size: 2.2rem;
+            }
+        }
+
+
+        /* Banner Css Animate */
+        .banner-contentContainer {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transition: all 1s cubic-bezier(.215, .61, .355, 1);
+}
+
+.banner-contentContainer.aos-animate {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transition: all 1s cubic-bezier(.215, .61, .355, 1);
+    transition-delay: 0.5s !important;
 }

@@ -71,6 +71,17 @@
     .nav-WhatsappBtn:hover {
         transform: scale(1.05);
     }
+    .bannerContainer {
+        position: relative;
+    }
+    .bannerOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90vh;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0,0,0,0.1), transparent,transparent);
+    }
     .bannerImage {
         width: 100%;
         display: block;
@@ -92,6 +103,7 @@
         padding: 1rem 5rem;
         background-color: rgb(255,255,255,0.5);
         box-shadow: 0px 4px 20px 0px #0000000f;
+        backdrop-filter: blur(10px);
     }
     .secondary-NavbarFlexContainer {
         display: flex;
@@ -238,7 +250,30 @@ header.white .burgerMenu span {
   bottom: auto;
   top: 50%;
 }
+.bannerOverlay {
+    display: none;
+}
         }
+</style>
+<style>
+    .banner-contentContainer {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) !important;
+        left: 5rem;
+        /* padding: 1rem; */
+        /* background-color: rgb(255,251,236); */
+        color: #6d6e70;
+        /* text-align: center; */
+    }
+    @media (max-width:768px) {
+        .banner-contentContainer {
+            position: relative;
+            transform: none !important;
+            left: 0;
+            top: 0;
+        }
+    }
 </style>
 </head>
 <body>
@@ -279,8 +314,32 @@ header.white .burgerMenu span {
                     <img src="assets/images/banner/banner.webp" alt="Banner" class="bannerImage" />
                 </div>
             </div>
+            <div class="bannerOverlay"></div>
         </div>
     </section>
+    <section class="banner-contentContainer" data-aos="fade">
+    <div class="design2">
+            <h2 class="heading">Lodha Riservo</h2>
+            <p class="location">At Bhandup</p>
+            
+            <div class="offers">
+                <div class="offer-item">
+                    <span class="offer-list">Early Spot Booking</span>
+                    <br>
+                    <span class="offer-list">Early Spot Booking</span>
+                </div>
+                <!-- <div class="offer-item">Payment Plan</div> -->
+            </div>
+            
+            <div class="price-section">
+                <div class="price-label">Luxurious 3,4 BHK Starting From</div>
+                <div class="price">₹ 3 Cr* <span class="price-suffix">Onwards</span></div>
+            </div>
+            <div style="text-align: center;">
+            <button class="cta-btn">Enquire Now</button>
+            </div>
+        </div>
+        </section>
 </main>
 
 <section class="secondary-NavigationContainer">
@@ -320,7 +379,7 @@ header.white .burgerMenu span {
             <button class="highlightMobileBtn">Know More</button>
         </div>
             <div class="highlightImageContainer">
-                <img src="assets/images/banner/banner.webp" alt="Highlights of Lodha" loading="lazy" class="highlightImage" />
+                <img src="assets/images/banner/banner.webp" alt="Highlights of Lodha" loading="lazy" class="highlightImage siteVisitImage" data-aos="fade-left"/>
             </div>
             <div class="highlight-listContainer">
                 <h2 class="section-heading" style="text-align: center;">Project Highlights</h2>
@@ -406,6 +465,10 @@ window.addEventListener("load",(e)=>{
                 e.preventDefault();
                 document.querySelector(".sidebar").style.top = document.querySelector("header").clientHeight+"px"
             })
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
 </script>
 </body>
 </html>

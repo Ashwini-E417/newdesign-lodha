@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lodha Riservo - Design Variations</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap'); */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* font-family: 'Inter', sans-serif; */
+            /* background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); */
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .design-title {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .designs-container {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* DESIGN 1: MODERN MINIMALIST CARD */
+        /* .design1 {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 420px;
+            width: 100%;
+            border-left: 6px solid #9d7f19;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #9d7f19, #f4e49c);
+            opacity: 0.1;
+            border-radius: 0 20px 0 100px;
+        }
+
+        .design1 .heading {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .design1 .location {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .design1 .location::before {
+            content: '📍';
+            font-size: 1.1rem;
+        }
+
+        .design1 .offers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .design1 .offer-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #2c3e50;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .design1 .offer-item:hover {
+            border-color: #9d7f19;
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        .design1 .price-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .design1 .price-label {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+
+        .design1 .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #9d7f19;
+            margin-bottom: 0.25rem;
+        }
+
+        .design1 .price-suffix {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+
+        .design1 .cta-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .design1 .cta-btn:hover {
+            background: #34495e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+        } */
+
+        /* DESIGN 2: LUXURY DARK THEME */
+        .design2 {
+            background: linear-gradient(145deg, #fffbec 0%, #fffbec 100%);
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            max-width: 420px;
+            width: 100%;
+            color: white;
+            position: relative;
+            border: 1px solid rgba(198, 169, 97, 0.3);
+        }
+
+        .design2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #9d7f19, #9d7f19, #9d7f19);
+        }
+
+        .design2 .heading {
+            font-size: 2rem;
+            font-weight: 700;
+            /* background: linear-gradient(135deg, #9d7f19, #f4e49c); */
+            background: #9d7f19;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .design2 .location {
+            font-size: 1.2rem;
+            color: #6d6e70;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .design2 .location::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: #9d7f19;
+        }
+
+        .design2 .offers {
+            margin: 1rem 0;
+        }
+
+        .design2 .offer-item {
+            background: rgba(198, 169, 97, 0.1);
+            margin-bottom: 1rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #9d7f19;
+            color: #6d6e70;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .design2 .offer-item::before {
+            content: '✓';
+            color: #9d7f19;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .design2 .offer-item:hover {
+            background: rgba(198, 169, 97, 0.15);
+            transform: translateX(8px);
+        }
+
+        .design2 .price-section {
+            text-align: center;
+            margin: 1rem 0;
+            padding: 1rem 1rem;
+            /* background: rgba(255, 255, 255, 0.05); */
+            /* border-radius: 16px;
+            border: 1px solid #9d7f19; */
+        }
+
+        .design2 .price-label {
+            font-size: 1rem;
+            color: #6d6e70;
+            /* margin-bottom: 0.5rem; */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .design2 .price {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #9d7f19;
+            margin-bottom: 0.25rem;
+        }
+
+        .design2 .price-suffix {
+            font-size: 1rem;
+            color: #6d6e70;
+        }
+
+        .design2 .cta-btn {
+            /* width: 100%; */
+            padding: 10px 20px;
+            background: transparent;
+            color: #9d7f19;
+            border: 1px solid #9d7f19;
+            /* border-radius: 12px; */
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* text-transform: uppercase; */
+            /* letter-spacing: 1px; */
+        }
+
+        .design2 .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(198, 169, 97, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .designs-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            /* .design1,  */
+            .design2 {
+                max-width: 100%;
+            }
+
+            /* .design1 .heading,  */
+            .design2 .heading {
+                font-size: 2.2rem;
+            }
+
+            /* .design1 .offers {
+                grid-template-columns: 1fr;
+            } */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="design-title">Alternative Design Concepts for Lodha Riservo</h1>
+    
+    <div class="designs-container">
+        <!-- DESIGN 1: MODERN MINIMALIST -->
+        <!-- <div class="design1">
+            <h2 class="heading">Lodha Riservo</h2>
+            <p class="location">At Bhandup</p>
+            
+            <div class="offers">
+                <div class="offer-item">Early Spot Booking</div>
+                <div class="offer-item">Payment Plan</div>
+            </div>
+            
+            <div class="price-section">
+                <div class="price-label">Luxurious 3,4 BHK Starting From</div>
+                <div class="price">₹ 3 Cr*</div>
+                <div class="price-suffix">Onwards</div>
+            </div>
+            
+            <button class="cta-btn">Enquire Now</button>
+        </div> -->
+
+        <!-- DESIGN 2: LUXURY DARK THEME -->
+        <div class="design2">
+            <h2 class="heading">Lodha Riservo</h2>
+            <p class="location">At Bhandup</p>
+            
+            <div class="offers">
+                <div class="offer-item">Early Spot Booking</div>
+                <div class="offer-item">Payment Plan</div>
+            </div>
+            
+            <div class="price-section">
+                <div class="price-label">Luxurious 3,4 BHK Starting From</div>
+                <div class="price">₹ 3 Cr*</div>
+                <div class="price-suffix">Onwards</div>
+            </div>
+            <div style="text-align: center;">
+            <button class="cta-btn">Enquire Now</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
