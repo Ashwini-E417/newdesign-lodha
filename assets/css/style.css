@@ -1,18 +1,18 @@
  @font-face {
     font-family: "Futura BK BT";
-    src: url("https://github.com/Ashwini-E417/newdesign-lodha/assets/fonts/FuturaBkBTBook.ttf") format("truetype");
+    src: url('https://github.com/Ashwini-E417/newdesign-lodha/blob/9591895c86afa9e905eb23a3a7d96a6a41ff8dab/assets/fonts/FuturaBkBTBook.ttf') format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 } 
 
-/* @font-face {
+@font-face {
         font-family: "Futura BK BT";
         src: url("/assets/fonts/Futura BK BT Book.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
-    } */
+    }
 
     a,button {
         all: unset;
@@ -110,7 +110,7 @@
             margin-bottom: 1rem;
         }
         .highlight-list li::marker {
-            content: '⬤   ';
+            content: '⬤     ';
             color: #9d7f19;
             font-size: x-small;
         }
@@ -129,14 +129,28 @@
 
         @media (max-width:768px) {
             .highlight-container {
-                padding: 2rem 1rem;
-                flex-direction: column-reverse;
+                padding: 0 0 2rem;
+                flex-direction: column;
             }
             .highlightImage {
                 height: 20vh;
             }
+            .highlight-listContainer {
+                padding: 1rem 1rem 0;
+            }
+            .highlight-listContainer .section-heading{
+                text-align: center;
+            }
             .highlight-list {
-                padding-bottom: 1rem;
+                /* padding: 1rem 1.5rem; */
+                padding: 1rem;
+
+                /* align-items: center; */
+                width: 90%;
+                margin: 0 auto;
+            }
+            .highlight-list li {
+                list-style-type: none;
             }
             .highlightMobileBtn {
                 background-color: #fff;
@@ -152,6 +166,19 @@
             }
             .highlightDeskBtn {
                 display: none;
+            }
+            .highlight-list li::marker {
+                content: none;
+            }
+            .highlight-list li {
+                display: flex;
+                justify-content:flex-start;
+                gap: 1rem;
+                text-align: justify;
+            }
+            .highlight-list li span {
+                font-size: smaller;
+                color: #9d7f19;
             }
         }
 
