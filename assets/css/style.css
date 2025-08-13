@@ -1,12 +1,12 @@
 
 
-/* @font-face {
+@font-face {
         font-family: "Futura BK BT";
         src: url("/assets/fonts/Futura BK BT Book.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
-    } */
+    }
 
     a,button {
         all: unset;
@@ -45,12 +45,16 @@
             color: #6d6e70;
             line-height: 1.25rem;
             font-size: 0.875rem;
-            max-height: 5rem;
+            display: -webkit-box;
+            line-clamp: 4;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
             overflow: hidden;
         }
         .clamptext-block {
-            max-height: 100rem;
-            overflow: visible;
+            display: block;
+            line-clamp: unset;
+            -webkit-line-clamp: unset;
         }
         .overviewBtn {
             width: 100px;
@@ -71,7 +75,7 @@
                 padding: 2rem 1rem;
             }
             .clamptext {
-                font-size: 14px;
+                font-size: 16px;
                 line-height: 18px;
             }
         }
@@ -120,6 +124,9 @@
             margin: 0 auto;
             width: 100px;
         }
+        .highlight-list li span {
+            display: none;
+        }
 
         @media (max-width:768px) {
             .highlight-container {
@@ -142,6 +149,7 @@
                 /* align-items: center; */
                 width: 90%;
                 margin: 0 auto;
+                font-size: 16px;
             }
             .highlight-list li {
                 list-style-type: none;
@@ -153,6 +161,8 @@
                 padding: 10px 20px;
                 font-size: 0.875rem;
                 width: 100px;
+                display: block;
+                text-align: center;
             }
             .MobilehighlightBtn-Container {
                 display: block;
@@ -173,6 +183,7 @@
             .highlight-list li span {
                 font-size: smaller;
                 color: #9d7f19;
+                display: inline;
             }
         }
 

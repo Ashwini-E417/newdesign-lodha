@@ -14,29 +14,6 @@
             padding: 2rem 10rem;
         }
 
-        .amenities-title {
-            font-size: 2.8rem;
-            font-weight: 300;
-            color: #2d3748;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-            display: inline-block;
-        }
-
-        .amenities-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #4299e1, #48bb78);
-            border-radius: 2px;
-        }
-
         .amenities-wrapper {
             position: relative;
             overflow: hidden;
@@ -57,7 +34,8 @@
             height: 100%;
             position: relative;
             transition: all 0.6s ease;
-            padding: 10px;
+            padding: 0 10px;
+            overflow: hidden;
         }
 
         .amenities-image {
@@ -66,15 +44,14 @@
             object-fit: cover;
             transition: all 0.6s ease;
             /* filter: blur(2px) brightness(0.7) saturate(0.8); */
-            transform: scale(0.9);
+            /* transform: scale(0.9); */
             cursor: pointer;
             /*box-shadow: 0 10px 20px rgba(0,0,0,0.1);*/
         }
 
-        .amenities-slide.amenities-center .amenities-image {
-            filter: none;
-            transform: scale(1);
-            /* box-shadow: 0 15px 30px rgba(0,0,0,0.2); */
+        .amenities-image:hover {
+            transform: scale(1.1);
+            overflow: clip;
         }
 
         .amenities-navigation {
@@ -85,7 +62,7 @@
             gap: 15px;
         }
 
-        .amenities-dot {
+        /* .amenities-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -104,27 +81,27 @@
         .amenities-dot:hover {
             background: #555;
             transform: scale(1.1);
-        }
+        } */
 
         .amenities-controls {
-            position: absolute;
+            /* position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(255,255,255,0.9);
-            border: none;
+            border: none; */
             width: 50px;
             height: 50px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 18px;
-            color: #333;
+            color: #000;
             transition: all 0.3s ease;
             z-index: 10;
             backdrop-filter: blur(10px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
+            /* align-items: center;
+            justify-content: center; */
         }
 
         .amenities-controls:hover {
@@ -144,16 +121,16 @@
         /* Text overlay styles */
         .amenities-text-overlay {
             position: absolute;
-            bottom: 25px;
+            /* bottom: 25px; */
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
+            /* background: rgba(0, 0, 0, 0.7); */
             color: white;
             padding: 10px 20px;
             border-radius: 30px;
             font-size: 16px;
             font-weight: 500;
-            backdrop-filter: blur(5px);
+            /* backdrop-filter: blur(5px); */
             z-index: 5;
             pointer-events: none;
             min-width: 160px;
@@ -297,9 +274,9 @@
                 font-size: 2.3rem;
             }
             
-            .amenities-wrapper {
+            /* .amenities-wrapper {
                 height: 350px;
-            }
+            } */
         }
         
         @media (max-width: 768px) {
