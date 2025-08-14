@@ -43,7 +43,7 @@
         }
         .clamptext {
             color: #6d6e70;
-            line-height: 1.25rem;
+            line-height: 22px;
             font-size: 0.875rem;
             display: -webkit-box;
             line-clamp: 4;
@@ -294,7 +294,7 @@
             font-size: 1rem;
             color: #6d6e70;
             margin-bottom: 0.5rem;
-            text-transform: uppercase;
+            /* text-transform: uppercase; */
             letter-spacing: 1px;
             line-height: 1.5;
         }
