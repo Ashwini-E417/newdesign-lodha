@@ -273,6 +273,12 @@
             align-items: center;
             gap: 1rem;
         }
+        .downloadAmenitiesBtn {
+            /* width: 100px; */
+            padding: 10px 20px;
+            border: 1px solid #9d7f19;
+            color: #9d7f19;
+        }
 
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -338,7 +344,7 @@
 
         @media (max-width: 576px) {
             .amenities-slide {
-                min-width: 50%;
+                min-width: 100%;
             }
             
             /* .amenities-slide.amenities-center .amenities-image {
@@ -440,6 +446,9 @@
             <button class="amenities-controls amenities-next" id="amenitiesNext">
                 <i class="fas fa-chevron-right"></i>
             </button>
+            </div>
+            <div style="text-align: center;margin: 1rem 0;">
+                <button class="downloadAmenitiesBtn">Download Amenities</button>
             </div>
         </div>
         
@@ -698,7 +707,7 @@
                 // });
                 
                 // Move carousel
-                const amenitiesSlideWidth = amenitiesIsMobile ? 50 : 33.333;
+                const amenitiesSlideWidth = amenitiesIsMobile ? 100 : 33.333;
                 const amenitiesTranslateX = -(this.amenitiesPosition * amenitiesSlideWidth);
                 this.amenitiesTrack.style.transform = `translateX(${amenitiesTranslateX}%)`;
                 console.log("middle");
@@ -721,7 +730,7 @@
                         this.amenitiesPosition = 3;
                         
                         const amenitiesIsMobile = window.innerWidth <= 576;
-                        const amenitiesSlideWidth = amenitiesIsMobile ? 50 : 33.333;
+                        const amenitiesSlideWidth = amenitiesIsMobile ? 100 : 33.333;
                         this.amenitiesTrack.style.transform = `translateX(-${this.amenitiesPosition * amenitiesSlideWidth}%)`;
                         console.log("rresetting");
                         // amenitiesSlides[index].classList.add("amenities-center");
@@ -751,7 +760,7 @@
                         const totalSlides = this.amenitiesTrack.querySelectorAll('.amenities-slide').length;
                         this.amenitiesPosition = totalSlides - 6;
                         const amenitiesIsMobile = window.innerWidth <= 576;
-                        const amenitiesSlideWidth = amenitiesIsMobile ? 50 : 33.333;
+                        const amenitiesSlideWidth = amenitiesIsMobile ? 100 : 33.333;
                         this.amenitiesTrack.style.transform = `translateX(-${this.amenitiesPosition * amenitiesSlideWidth}%)`;
                         
                         setTimeout(() => {
