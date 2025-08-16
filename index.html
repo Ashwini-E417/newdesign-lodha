@@ -506,10 +506,56 @@ header.white .burgerMenu span {
         </div>
     </div>
     </section>
+<!--Floor Plan -->
+<section class="section-container">
+    <div class="floor-container">
+        <h2 class="section-heading">Floor Plan</h2>
+        <p class="section-subheading">Explore All Plans Available</p>
+        
+        <div class="floor-wrapper">
+            <div class="floor-track" id="floorTrack">
+                <!-- Only original images (no duplicates) -->
+                <div class="floor-slide">
+                    <div class="floor-imageContainer">
+                    <img class="floor-image" src="assets/images/floor/master.webp" alt="master Plan" loading="lazy">
+                    </div>
+                    <div class="floor-text-overlay">Master Plan</div>
+                </div>
+                <div class="floor-slide">
+                    <div class="floor-imageContainer">
+                    <img class="floor-image" src="assets/images/floor/floorplan.webp" alt="Floor Plan - 3BHK" loading="lazy">
+                    </div>
+                    <div class="floor-text-overlay">Floor Plan-3BHK</div>
+                </div>
+                <div class="floor-slide">
+                    <div class="floor-imageContainer">
+                    <img class="floor-image" src="assets/images/floor/3bhk.webp" alt="3 BHK" loading="lazy">
+                    </div>
+                    <div class="floor-text-overlay">3 BHK Plan</div>
+                </div>
+                
+            </div>
+            <div class="floor-controlsContainer">
+            <button class="floor-controls floor-prev" id="floorPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="floor-controls floor-next" id="floorNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            </div>
+            <div style="text-align: center;margin: 1rem 0;">
+                <button class="downloadfloorBtn">Download Floor Plan</button>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    
+    </section>
 
 
-
-<script src="assets/js/script.js"></script>
+<script src="assets/js/script.js" defer async></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({

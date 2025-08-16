@@ -237,7 +237,6 @@ window.addEventListener("load",(e)=>{
             }
             
             openAmenitiesLightbox(index) {
-                console.log(index);
                 this.amenitiesLightboxCurrentIndex = index;
                 this.amenitiesLightboxImage.src = this.amenitiesImages[index];
                 this.amenitiesLightboxTitle.textContent = this.amenitiesTexts[index];
@@ -301,7 +300,6 @@ window.addEventListener("load",(e)=>{
                 const amenitiesSlideWidth = amenitiesIsMobile ? 100 : 33.333;
                 const amenitiesTranslateX = -(this.amenitiesPosition * amenitiesSlideWidth);
                 this.amenitiesTrack.style.transform = `translateX(${amenitiesTranslateX}%)`;
-                console.log("middle");
             }
             
             amenitiesNextSlide() {
@@ -323,12 +321,12 @@ window.addEventListener("load",(e)=>{
                         const amenitiesIsMobile = window.innerWidth <= 576;
                         const amenitiesSlideWidth = amenitiesIsMobile ? 100 : 33.333;
                         this.amenitiesTrack.style.transform = `translateX(-${this.amenitiesPosition * amenitiesSlideWidth}%)`;
-                        console.log("rresetting");
+                        
                         // amenitiesSlides[index].classList.add("amenities-center");
-                        console.log("Adding");
+                        
                         setTimeout(() => {
                             this.amenitiesTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                            console.log(this.amenitiesTrack.style.transform);
+                            
                         }, 50);
                     }
                     this.amenitiesIsTransitioning = false;
@@ -397,4 +395,259 @@ window.addEventListener("load",(e)=>{
         // Initialize carousel when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             new AmenitiesCarousel();
+        });
+
+
+
+
+
+
+
+
+
+
+        // Floor Js
+        class floorCarousel {
+            constructor() {
+                // Get the original slides
+                this.originalSlides = Array.from(document.querySelectorAll('.floor-slide'));
+                this.floorTotalSlides = this.originalSlides.length;
+                
+                // Store data for lightbox
+                this.floorImages = [];
+                this.floorTexts = [];
+                
+                // Extract data from original slides
+                this.originalSlides.forEach(slide => {
+                    const img = slide.querySelector('.floor-image');
+                    const text = slide.querySelector('.floor-text-overlay');
+                    this.floorImages.push(img.src);
+                    this.floorTexts.push(text.textContent);
+                    
+                    // Add error handling for images
+                    img.onerror = () => {
+                        img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDgwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik00MDAgMzAwQzQwMCAzNTUuMjI4IDM1NS4yMjggNDAwIDMwMCA0MDBDMjQ0Ljc3MiA0MDAgMjAwIDM1NS4yMjggMjAwIDMwMEMyMDAgMjQ0Ljc3MiAyNDQuNzcyIDIwMCAzMDAgMjAwQzM1NS4yMjggMjAwIDQwMCAyNDQuNzcyIDQwMCAzMDBaIiBmaWxsPSIjOUNBM0FGIi8+Cjx0ZXh0IHg9IjQwMCIgeT0iMzIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjc3MjhEIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiPkltYWdlIG5vdCBmb3VuZDwvdGV4dD4KPC9zdmc+';
+                    };
+                });
+                
+                // Setup carousel variables
+                this.floorCurrentIndex = 0;
+                this.floorTrack = document.getElementById('floorTrack');
+                // this.floorDotsContainer = document.getElementById('floorDots');
+                this.floorPrevBtn = document.getElementById('floorPrev');
+                this.floorNextBtn = document.getElementById('floorNext');
+                this.floorAutoPlayInterval = null;
+                this.floorIsTransitioning = false;
+                
+                // Calculate starting position for seamless infinite scroll
+                this.floorPosition = this.floorTotalSlides;
+                
+                
+                
+                // Initialize the carousel
+                this.floorInit();
+            }
+            
+            floorInit() {
+                // Clone slides for infinite effect
+                this.floorCloneSlides();
+                
+                // Create dots
+                // this.floorCreateDots();
+                
+                // Bind events
+                this.floorBindEvents();
+                // this.floorBindLightboxEvents();
+                
+                // Position the carousel
+                this.floorUpdateCarousel();
+                
+                // Start autoplay
+                this.floorStartAutoPlay();
+            }
+            
+            floorCloneSlides() {
+                // Create clones for infinite scrolling effect
+                const fragmentStart = document.createDocumentFragment();
+                const fragmentEnd = document.createDocumentFragment();
+                
+                // Clone first 3 slides to the end
+                for (let i = 0; i < 3; i++) {
+                    const clone = this.originalSlides[i].cloneNode(true);
+                    fragmentEnd.appendChild(clone);
+                }
+                
+                // Clone last 3 slides to the beginning
+                for (let i = this.floorTotalSlides - 3; i < this.floorTotalSlides; i++) {
+                    const clone = this.originalSlides[i].cloneNode(true);
+                    fragmentStart.appendChild(clone);
+                }
+                
+                // Append clones to track
+                this.floorTrack.prepend(fragmentStart);
+                this.floorTrack.appendChild(fragmentEnd);
+                
+                // Setup image click events for all slides
+                // this.floorSetupImageClickEvents();
+            }
+            
+            
+            
+            
+            
+            floorBindEvents() {
+                this.floorPrevBtn.addEventListener('click', () => this.floorPrevSlide());
+                this.floorNextBtn.addEventListener('click', () => this.floorNextSlide());
+                
+                // Touch events for mobile
+                let floorStartX = 0;
+                let floorEndX = 0;
+                
+                this.floorTrack.addEventListener('touchstart', (e) => {
+                    floorStartX = e.touches[0].clientX;
+                },{passive:true});
+                
+                this.floorTrack.addEventListener('touchend', (e) => {
+                    floorEndX = e.changedTouches[0].clientX;
+                    const floorDiff = floorStartX - floorEndX;
+                    
+                    if (Math.abs(floorDiff) > 50) {
+                        if (floorDiff > 0) {
+                            this.floorNextSlide();
+                        } else {
+                            this.floorPrevSlide();
+                        }
+                    }
+                },{passive:true});
+                
+                // Pause autoplay on hover
+                this.floorTrack.addEventListener('mouseenter', () => this.floorStopAutoPlay());
+                this.floorTrack.addEventListener('mouseleave', () => this.floorStartAutoPlay());
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        this.floorPrevSlide();
+                    } else if (e.key === 'ArrowRight') {
+                        this.floorNextSlide();
+                    } 
+                    // else if (e.key === 'Escape' && this.floorLightbox.classList.contains('active')) {
+                    //     this.closefloorLightbox();
+                    // }
+                });
+            }
+            
+            
+            floorUpdateCarousel() {
+                const floorSlides = this.floorTrack.querySelectorAll('.floor-slide');
+                // const floorDots = this.floorDotsContainer.querySelectorAll('.floor-dot');
+                
+                // Calculate which slide is in the center
+                const floorIsMobile = window.innerWidth <= 576;
+                const floorCenterIndex = floorIsMobile ? 
+                    this.floorPosition + 1 : 
+                    this.floorPosition + 1;
+                
+                
+                
+                // Move carousel
+                const floorSlideWidth = floorIsMobile ? 100 : 33.333;
+                const floorTranslateX = -(this.floorPosition * floorSlideWidth);
+                this.floorTrack.style.transform = `translateX(${floorTranslateX}%)`;
+                
+            }
+            
+            floorNextSlide() {
+                if (this.floorIsTransitioning) return;
+                this.floorIsTransitioning = true;
+                
+                this.floorPosition++;
+                this.floorCurrentIndex = (this.floorCurrentIndex + 1) % this.floorTotalSlides;
+                
+                this.floorUpdateCarousel();
+                
+                // Reset position for seamless infinite scroll
+                setTimeout(() => {
+                    const totalSlides = this.floorTrack.querySelectorAll('.floor-slide').length;
+                    if (this.floorPosition >= totalSlides - 3) {
+                        this.floorTrack.style.transition = 'none';
+                        this.floorPosition = 3;
+                        
+                        const floorIsMobile = window.innerWidth <= 576;
+                        const floorSlideWidth = floorIsMobile ? 100 : 33.333;
+                        this.floorTrack.style.transform = `translateX(-${this.floorPosition * floorSlideWidth}%)`;
+                        
+                        // floorSlides[index].classList.add("floor-center");
+                        
+                        setTimeout(() => {
+                            this.floorTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                            
+                        }, 50);
+                    }
+                    this.floorIsTransitioning = false;
+                }, 600);
+            }
+            
+            floorPrevSlide() {
+                if (this.floorIsTransitioning) return;
+                this.floorIsTransitioning = true;
+                
+                this.floorPosition--;
+                this.floorCurrentIndex = (this.floorCurrentIndex - 1 + this.floorTotalSlides) % this.floorTotalSlides;
+                
+                this.floorUpdateCarousel();
+                
+                // Reset position for seamless infinite scroll
+                setTimeout(() => {
+                    if (this.floorPosition <= 0) {
+                        this.floorTrack.style.transition = 'none';
+                        const totalSlides = this.floorTrack.querySelectorAll('.floor-slide').length;
+                        this.floorPosition = totalSlides - 6;
+                        const floorIsMobile = window.innerWidth <= 576;
+                        const floorSlideWidth = floorIsMobile ? 100 : 33.333;
+                        this.floorTrack.style.transform = `translateX(-${this.floorPosition * floorSlideWidth}%)`;
+                        
+                        setTimeout(() => {
+                            this.floorTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        }, 50);
+                    }
+                    this.floorIsTransitioning = false;
+                }, 600);
+            }
+            
+            floorGoToSlide(index) {
+                if (this.floorIsTransitioning || index === this.floorCurrentIndex) return;
+                
+                this.floorIsTransitioning = true;
+                
+                // Calculate the difference
+                const diff = index - this.floorCurrentIndex;
+                this.floorPosition += diff;
+                this.floorCurrentIndex = index;
+                
+                this.floorUpdateCarousel();
+                
+                setTimeout(() => {
+                    this.floorIsTransitioning = false;
+                }, 600);
+            }
+            
+            floorStartAutoPlay() {
+                this.floorStopAutoPlay();
+                this.floorAutoPlayInterval = setInterval(() => {
+                    this.floorNextSlide();
+                }, 5000);
+            }
+            
+            floorStopAutoPlay() {
+                if (this.floorAutoPlayInterval) {
+                    clearInterval(this.floorAutoPlayInterval);
+                    this.floorAutoPlayInterval = null;
+                }
+            }
+        }
+        
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new floorCarousel();
         });
