@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @font-face {
+            font-family: "Futura BK BT";
+            src: url('assets/fonts/FuturaBkBTBook.ttf') format("truetype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        } 
+        .price-container {
+            padding: 2rem 5rem;
+            position: relative;
+        }
+        .price-itemContainer {
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: px;
+            justify-content: space-around;
+            padding: 25px 10px;
+        }
+        .price-leftContainer {
+            display: flex;
+            align-items: center;
+            gap: 10%;
+            flex: 0 0 50%;
+        }
+        .price-type,.price-carpet {
+            flex: 0 0 50%;
+        }
+        .price-clampContainer {
+            max-height: 0px;
+            transition: max-height 0.6s ease-in-out;
+            overflow: hidden;
+        }
+        .price-clampContainer.price-clampContainer-visible{
+            max-height: 500px;
+        }
+        .price-MoreLinkcontainer {
+            text-align: center;
+            padding: 25px 10px;
+        }
+        .price-MoreLink {
+            color: #9d7f19;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .priceEnquireBtn {
+            color: #9d7f19;
+            background-color: #fff;
+            width: 100px;
+            padding: 10px 20px;
+            font-size: 0.875rem;
+            display: block;
+            margin: 0  auto;
+            border: 1px solid #9d7f19;
+            /* margin-top: 25px; */
+            position: absolute;
+            top: 2rem;
+            right: 5rem;
+        }
+        .priceEnquireBtn:hover {
+            background-color: #9d7f19;
+            color: #fff;
+        }
+        @media (max-width:768px) {
+            .price-container {
+                padding: 2rem 1rem;
+            }
+            .priceEnquireBtn {
+                position: relative;
+                right: 0;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section-container">
+        <div class="price-container">
+            <h2 class="section-heading" style="text-align: center;">Price Plan</h2>
+            <p class="section-subheading" style="text-align: center;">Explore 3,4 BHK Price</p>
+            <div class="price-listContainer">
+                <div class="price-itemContainer">
+                    <div class="price-leftContainer">
+                        <p class="price-type">2 Bhk</p>
+                        <p class="price-carpet">3000 Sq. Ft</p>
+                    </div>
+                    <div class="price-rightContainer">
+                        <p>₹ 2.08 Cr++</p>
+                    </div>
+                </div>
+                <div class="price-itemContainer">
+                    <div class="price-leftContainer">
+                        <p class="price-type">2+2 Jodi Apartment</p>
+                        <p class="price-carpet">3000 Sq. Ft</p>
+                    </div>
+                    <div class="price-rightContainer">
+                        <p>₹ 2.08 Cr++</p>
+                    </div>
+                </div>
+                <div class="price-clampContainer">
+                    <div class="price-itemContainer">
+                        <div class="price-leftContainer">
+                            <p class="price-type">2+2 Jodi Apartment</p>
+                            <p class="price-carpet">3000 Sq. Ft</p>
+                        </div>
+                        <div class="price-rightContainer">
+                            <p>₹ 2.08 Cr++</p>
+                        </div>
+                    </div>
+                    <div class="price-itemContainer">
+                        <div class="price-leftContainer">
+                            <p class="price-type">2+2 Jodi Apartment</p>
+                            <p class="price-carpet">3000 Sq. Ft</p>
+                        </div>
+                        <div class="price-rightContainer">
+                            <p>₹ 2.08 Cr++</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-MoreLinkcontainer">
+            <a href="" class="price-MoreLink">View More</a>
+            <button class="priceEnquireBtn">Download All Pricing Sheet</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        let priceLink = document.querySelector(".price-MoreLink");
+        priceLink.addEventListener("click",(e)=>{
+            e.preventDefault();
+            document.querySelector(".price-clampContainer").classList.toggle("price-clampContainer-visible");
+            priceLink.innerHTML = priceLink.innerHTML === "View More" ? "View Less" : "View More";
+        })
+    </script>
+</body>
+</html>
