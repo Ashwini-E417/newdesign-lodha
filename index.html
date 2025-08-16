@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Header</title>
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <!-- <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> -->
 <style>
      @font-face {
@@ -348,7 +349,7 @@ header.white .burgerMenu span {
         </div>
         </section>
 </main>
-
+<!--Second Navbar-->
 <section class="secondary-NavigationContainer">
     <div class="secondary-Navbar">
         <span class="secondary-NavbarFlexContainer">
@@ -366,7 +367,7 @@ header.white .burgerMenu span {
         </span>
     </div>
 </section>
-
+<!--Overview-->
 <section class="section-container">
         <div class="overview-Container">
             <h2 class="section-heading">Overview</h2>
@@ -379,7 +380,7 @@ header.white .burgerMenu span {
             <button class="overviewBtn">Enquire Now</button>
         </div>
     </section>
-
+<!--Highlight-->
     <section class="section-container">
         <div class="highlight-container">
             <div class="highlightImageContainer">
@@ -421,74 +422,94 @@ header.white .burgerMenu span {
         </div>
         
     </section>
+<!--Amenities-->
+<section class="section-container">
+    <div class="amenities-container">
+        <h2 class="section-heading">Amenities</h2>
+        <p class="section-subheading">Preminum Facilities for your elevated Lifestyle</p>
+        
+        <div class="amenities-wrapper">
+            <div class="amenities-track" id="amenitiesTrack">
+                <!-- Only original images (no duplicates) -->
+                <div class="amenities-slide">
+                    <div class="amenities-imageContainer">
+                    <img class="amenities-image" src="assets/images/amenities/swimming.webp" alt="Swimming Pool" loading="lazy">
+                    </div>
+                    <div class="amenities-text-overlay">Infinity Pool</div>
+                </div>
+                <div class="amenities-slide">
+                    <div class="amenities-imageContainer">
+                    <img class="amenities-image" src="assets/images/amenities/gym.webp" alt="Fitness Center" loading="lazy">
+                    </div>
+                    <div class="amenities-text-overlay">Fitness Center</div>
+                </div>
+                <div class="amenities-slide">
+                    <div class="amenities-imageContainer">
+                    <img class="amenities-image" src="assets/images/amenities/indoorgames.webp" alt="Indoor Games Area" loading="lazy">
+                    </div>
+                    <div class="amenities-text-overlay">Indoor Games</div>
+                </div>
+                <div class="amenities-slide">
+                    <div class="amenities-imageContainer">
+                    <img class="amenities-image" src="assets/images/amenities/temple.webp" alt="Temple" loading="lazy">
+                    </div>
+                    <div class="amenities-text-overlay">Temple</div>
+                </div>
+                <div class="amenities-slide">
+                    <div class="amenities-imageContainer">
+                    <img class="amenities-image" src="assets/images/amenities/kids.webp" alt="kids play area" loading="lazy"></div>
+                    <div class="amenities-text-overlay">Kids Play Area</div>
+                </div>
+                <div class="amenities-slide">
+                    <div class="amenities-imageContainer">
+                    <img class="amenities-image" src="assets/images/amenities/theatre.webp" alt="theatre" loading="lazy"></div>
+                    <div class="amenities-text-overlay">Theatre</div>
+                </div>
+            </div>
+            <div class="amenities-controlsContainer">
+            <button class="amenities-controls amenities-prev" id="amenitiesPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="amenities-controls amenities-next" id="amenitiesNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            </div>
+            <div style="text-align: center;margin: 1rem 0;">
+                <button class="downloadAmenitiesBtn">Download Amenities</button>
+            </div>
+        </div>
+        
+        <!-- <div class="amenities-navigation" id="amenitiesDots">
+            
+        </div> -->
+    </div>
 
-<script>
-    function resizeHeader() {
-        const header = document.querySelector('header');
-    if (window.innerWidth > 768) {
-let lastScroll = 0;
+    <!-- Lightbox Modal -->
+    <div class="amenities-lightbox" id="amenitiesLightbox">
+        <div class="amenities-lightbox-content">
+            <button class="amenities-lightbox-close" id="amenitiesLightboxClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <img class="amenities-lightbox-image" id="amenitiesLightboxImage" src="" alt="">
+            
+            <div class="amenities-lightbox-title" id="amenitiesLightboxTitle"></div>
+            <div class="amenities-lightbox-counter" id="amenitiesLightboxCounter">1 / 6</div>
+            <div class="amenities-lightbox-arrowControls">
+                <button class="amenities-lightbox-nav amenities-lightbox-prev" id="amenitiesLightboxPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="amenities-lightbox-nav amenities-lightbox-next" id="amenitiesLightboxNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            </div>
+        </div>
+    </div>
+    </section>
 
-const bannerHeight = document.querySelector('.bannerContainer').offsetHeight;
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
 
-    if (currentScroll <= bannerHeight) {
-        // We are still in or near the banner area
-        if (currentScroll <= 50) {
-            // At very top → always show
-            header.classList.remove('hide');
-        } 
-        else if (currentScroll > lastScroll) {
-            // Scrolling down in banner area → hide
-            header.classList.add('hide');
-        } 
-        else {
-            // Scrolling up in banner area → show
-            header.classList.remove('hide');
-        }
-    } 
-    else {
-        // Beyond banner → always hide first navbar
-        header.classList.add('hide');
-    }
-
-    lastScroll = currentScroll;
-});
-    }
-    else {
-        header.classList.remove("hide");
-    }
-}
-window.addEventListener("resize",(e)=>{
-    e.preventDefault();
-    resizeHeader();
-})
-window.addEventListener("load",(e)=>{
-    e.preventDefault();
-    resizeHeader();
-})
-</script>
-
-<script>
-    document.querySelectorAll(".readMoreLink").forEach((element,index)=>{
-        element.addEventListener("click",(e)=>{
-            e.preventDefault();
-            document.querySelectorAll(".clamptext")[index].classList.toggle("clamptext-block");
-            element.innerHTML = (element.innerHTML === "Read Less") ? "Read More" : "Read Less" ;
-        });
-    });
-
-            document.getElementById("burgerMenu").addEventListener("click", function () {
-                document.body.classList.toggle("mobMenuOpen");
-                document.querySelector(".sidebar").classList.toggle("sidebaractive");
-            });
-
-            window.addEventListener("load",(e)=>{
-                e.preventDefault();
-                document.querySelector(".sidebar").style.top = document.querySelector("header").clientHeight+"px"
-            })
-</script>
+<script src="assets/js/script.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({

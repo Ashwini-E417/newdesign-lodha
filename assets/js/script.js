@@ -1,500 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Amenities Carousel with Lightbox</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
+//sticky header JS
+    function resizeHeader() {
+        const header = document.querySelector('header');
+    if (window.innerWidth > 768) {
+let lastScroll = 0;
 
-        .amenities-container {
-            width: 100%;
-            text-align: center;
-            padding: 2rem 10rem;
+const bannerHeight = document.querySelector('.bannerContainer').offsetHeight;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll <= bannerHeight) {
+        // We are still in or near the banner area
+        if (currentScroll <= 50) {
+            // At very top → always show
+            header.classList.remove('hide');
+        } 
+        else if (currentScroll > lastScroll) {
+            // Scrolling down in banner area → hide
+            header.classList.add('hide');
+        } 
+        else {
+            // Scrolling up in banner area → show
+            header.classList.remove('hide');
         }
+    } 
+    else {
+        // Beyond banner → always hide first navbar
+        header.classList.add('hide');
+    }
 
-        .amenities-wrapper {
-            /* border: 1px solid black; */
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            /* box-shadow: 0 20px 40px rgba(0,0,0,0.1); */
-        }
+    lastScroll = currentScroll;
+});
+    }
+    else {
+        header.classList.remove("hide");
+    }
+}
+window.addEventListener("resize",(e)=>{
+    e.preventDefault();
+    resizeHeader();
+})
+window.addEventListener("load",(e)=>{
+    e.preventDefault();
+    resizeHeader();
+})
 
-        .amenities-track {
-            display: flex;
-            height: 100%;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: transform;
-        }
 
-        .amenities-slide {
-            min-width: 33.333%;
-            height: 60vh;
-            position: relative;
-            transition: all 0.6s ease;
-            padding: 0px 10px;
-            overflow: hidden;
-        }
+//Overview and menubar JS
+    document.querySelectorAll(".readMoreLink").forEach((element,index)=>{
+        element.addEventListener("click",(e)=>{
+            e.preventDefault();
+            document.querySelectorAll(".clamptext")[index].classList.toggle("clamptext-block");
+            element.innerHTML = (element.innerHTML === "Read Less") ? "Read More" : "Read Less" ;
+        });
+    });
 
-        .amenities-image {
-            display: block;
-            width: 100%;
-            height: 50vh;
-            object-fit: cover;
-            transition: all 3s ease-in-out;
-            /* filter: blur(2px) brightness(0.7) saturate(0.8); */
-            /* transform: scale(0.9); */
-            cursor: pointer;
-            /*box-shadow: 0 10px 20px rgba(0,0,0,0.1);*/
-        }
+            document.getElementById("burgerMenu").addEventListener("click", function () {
+                document.body.classList.toggle("mobMenuOpen");
+                document.querySelector(".sidebar").classList.toggle("sidebaractive");
+            });
 
-        .amenities-image:hover {
-            transform: scale(1.1);
-            overflow: hidden;
-        }
+            window.addEventListener("load",(e)=>{
+                e.preventDefault();
+                document.querySelector(".sidebar").style.top = document.querySelector("header").clientHeight+"px"
+            })
 
-        .amenities-navigation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            gap: 15px;
-        }
 
-        /* .amenities-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            outline: none;
-        }
-
-        .amenities-dot.amenities-active {
-            background: #2d3748;
-            transform: scale(1.2);
-        }
-
-        .amenities-dot:hover {
-            background: #555;
-            transform: scale(1.1);
-        } */
-
-        .amenities-controls {
-            /* position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            border: none; */
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            font-size: 18px;
-            color: #9d7f19;
-            transition: all 0.3s ease;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .amenities-imageContainer {
-            overflow: hidden;
-        }
-        /* .amenities-controls:hover {
-            background: rgba(255,255,255,1); 
-            transform: translateY(-50%) scale(1.1); 
-            text-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        } */
-
-        .amenities-prev {
-            left: 20px;
-        }
-
-        .amenities-next {
-            right: 20px;
-        }
-
-        /* Text overlay styles */
-        .amenities-text-overlay {
-            position: absolute;
-            /* bottom: 25px; */
-            left: 50%;
-            transform: translateX(-50%);
-            /* background: rgba(0, 0, 0, 0.7); */
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 500;
-            /* backdrop-filter: blur(5px); */
-            z-index: 5;
-            pointer-events: none;
-            min-width: 160px;
-            text-align: center;
-            /* box-shadow: 0 4px 12px rgba(0,0,0,0.2); */
-            transition: all 0.3s ease;
-            opacity: 0.9;
-        }
-
-        .amenities-slide.amenities-center .amenities-text-overlay {
-            background: rgba(74, 85, 104, 0.9);
-            padding: 12px 24px;
-            font-size: 18px;
-            /* box-shadow: 0 6px 15px rgba(0,0,0,0.3); */
-        }
-
-        /* Lightbox Styles */
-        .amenities-lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .amenities-lightbox.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .amenities-lightbox-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: baseline;
-        }
-
-        .amenities-lightbox-image {
-            max-width: 100%;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 0px;
-            /* box-shadow: 0 20px 60px rgba(0,0,0,0.5); */
-            transition: transform 0.3s ease;
-        }
-
-        .amenities-lightbox-title {
-            color: white;
-            font-size: 1rem;
-            margin-top: 10px;
-            font-weight: 500;
-            text-align: center;
-            max-width: 800px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .amenities-lightbox-close {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            /* background: rgba(255,255,255,0.2); */
-            border: 1px solid #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            color: white;
-            /* font-size: 24px; */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            /* backdrop-filter: blur(10px); */
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .amenities-lightbox-close:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.1);
-        }
-
-        .amenities-lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            /* background: rgba(255,255,255,0.2); */
-            border: 1px solid #fff;
-            width: 40px;
-            height: 40px;
-            /* border-radius: 50%; */
-            color: white;
-            /* font-size: 24px; */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            /* backdrop-filter: blur(10px); */
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .amenities-lightbox-nav:hover {
-            background: rgba(255,255,255,0.3);
-            /* transform: translateY(-50%) scale(1.1); */
-        }
-
-        .amenities-lightbox-prev {
-            left: -50px;
-            transform: translate(-50%,-50%);
-        }
-
-        .amenities-lightbox-next {
-            right: -50px;
-            transform: translate(50%,-50%);
-        }
-
-        .amenities-lightbox-counter {
-            position: absolute;
-            bottom: 0px;
-            right: 0px;
-            /* background: rgba(0,0,0,0.7); */
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 16px;
-            font-weight: 500;
-            /* backdrop-filter: blur(10px); */
-            transform: translateY(10px);
-        }
-        .amenities-controlsContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-        }
-        .downloadAmenitiesBtn {
-            /* width: 100px; */
-            padding: 10px 20px;
-            border: 1px solid #9d7f19;
-            color: #9d7f19;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .amenities-title {
-                font-size: 2.3rem;
-            }
-            
-            /* .amenities-wrapper {
-                height: 350px;
-            } */
-        }
-        
-        @media (max-width: 768px) {
-            .amenities-container {
-                padding: 2rem;
-            }
-            .amenities-title {
-                font-size: 2rem;
-                margin-bottom: 30px;
-            }
-            
-            .amenities-image {
-                height: 40vh;
-            }
-            .amenities-slide {
-                height: 45vh;
-            }
-            
-            .amenities-controls {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-            
-            .amenities-prev {
-                left: 10px;
-            }
-            
-            .amenities-next {
-                right: 10px;
-            }
-
-            .amenities-lightbox-nav {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            .amenities-lightbox-close {
-                top: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-
-            .amenities-text-overlay {
-                font-size: 14px;
-                padding: 8px 16px;
-                /* bottom: 20px; */
-            }
-        }
-
-        @media (max-width: 576px) {
-            .amenities-slide {
-                min-width: 100%;
-            }
-            
-            /* .amenities-slide.amenities-center .amenities-image {
-                filter: none;
-                transform: scale(1);
-            } */
-            
-            .amenities-title {
-                font-size: 1.8rem;
-            }
-            
-            /* .amenities-wrapper {
-                height: 250px;
-            } */
-            
-            .amenities-text-overlay {
-                font-size: 13px;
-                padding: 6px 14px;
-                bottom: 5px;
-            }
-            
-            .amenities-lightbox-title {
-                font-size: 1rem;
-                margin-top: 10px;
-            }
-            .amenities-lightbox-arrowControls {
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20% 0 0;
-                margin: 0 auto;
-            }
-            .amenities-lightbox-counter {
-                bottom: 20%;
-                right: 0%;
-                font-size: 14px;
-            }
-            .amenities-lightbox-nav {
-                width: 30px;
-                height: 30px;
-                /* font-size: 18px; */
-                position: relative;
-            }
-
-            .amenities-lightbox-prev {
-                left: 0px;
-            }
-
-            .amenities-lightbox-next {
-                right: 0px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            
-
-            
-            
-        }
-    </style>
-</head>
-<body>
-    <section class="section-container">
-    <div class="amenities-container">
-        <h2 class="section-heading">Amenities</h2>
-        <p class="section-subheading">Preminum Facilities for your elevated Lifestyle</p>
-        
-        <div class="amenities-wrapper">
-            <div class="amenities-track" id="amenitiesTrack">
-                <!-- Only original images (no duplicates) -->
-                <div class="amenities-slide">
-                    <div class="amenities-imageContainer">
-                    <img class="amenities-image" src="assets/images/amenities/swimming.webp" alt="Swimming Pool" loading="lazy">
-                    </div>
-                    <div class="amenities-text-overlay">Infinity Pool</div>
-                </div>
-                <div class="amenities-slide">
-                    <div class="amenities-imageContainer">
-                    <img class="amenities-image" src="assets/images/amenities/gym.webp" alt="Fitness Center" loading="lazy">
-                    </div>
-                    <div class="amenities-text-overlay">Fitness Center</div>
-                </div>
-                <div class="amenities-slide">
-                    <div class="amenities-imageContainer">
-                    <img class="amenities-image" src="assets/images/amenities/indoorgames.webp" alt="Indoor Games Area" loading="lazy">
-                    </div>
-                    <div class="amenities-text-overlay">Indoor Games</div>
-                </div>
-                <div class="amenities-slide">
-                    <div class="amenities-imageContainer">
-                    <img class="amenities-image" src="assets/images/amenities/temple.webp" alt="Temple" loading="lazy">
-                    </div>
-                    <div class="amenities-text-overlay">Temple</div>
-                </div>
-                <div class="amenities-slide">
-                    <div class="amenities-imageContainer">
-                    <img class="amenities-image" src="assets/images/amenities/kids.webp" alt="kids play area" loading="lazy"></div>
-                    <div class="amenities-text-overlay">Kids Play Area</div>
-                </div>
-                <div class="amenities-slide">
-                    <div class="amenities-imageContainer">
-                    <img class="amenities-image" src="assets/images/amenities/theatre.webp" alt="theatre" loading="lazy"></div>
-                    <div class="amenities-text-overlay">Theatre</div>
-                </div>
-            </div>
-            <div class="amenities-controlsContainer">
-            <button class="amenities-controls amenities-prev" id="amenitiesPrev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="amenities-controls amenities-next" id="amenitiesNext">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            </div>
-            <div style="text-align: center;margin: 1rem 0;">
-                <button class="downloadAmenitiesBtn">Download Amenities</button>
-            </div>
-        </div>
-        
-        <!-- <div class="amenities-navigation" id="amenitiesDots">
-            
-        </div> -->
-    </div>
-
-    <!-- Lightbox Modal -->
-    <div class="amenities-lightbox" id="amenitiesLightbox">
-        <div class="amenities-lightbox-content">
-            <button class="amenities-lightbox-close" id="amenitiesLightboxClose">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <img class="amenities-lightbox-image" id="amenitiesLightboxImage" src="" alt="">
-            
-            <div class="amenities-lightbox-title" id="amenitiesLightboxTitle"></div>
-            <div class="amenities-lightbox-counter" id="amenitiesLightboxCounter">1 / 6</div>
-            <div class="amenities-lightbox-arrowControls">
-                <button class="amenities-lightbox-nav amenities-lightbox-prev" id="amenitiesLightboxPrev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="amenities-lightbox-nav amenities-lightbox-next" id="amenitiesLightboxNext">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            </div>
-        </div>
-    </div>
-    </section>
-    <script>
+            //Amenities JS
         class AmenitiesCarousel {
             constructor() {
                 // Get the original slides
@@ -826,6 +398,3 @@
         document.addEventListener('DOMContentLoaded', () => {
             new AmenitiesCarousel();
         });
-    </script>
-</body>
-</html>
