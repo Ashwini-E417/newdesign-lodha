@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        @font-face {
+            font-family: "Futura BK BT";
+            src: url('assets/fonts/FuturaBkBTBook.ttf') format("truetype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        } 
+        .location-container  {
+            /* background-color: #f0f0f0; */
+            padding: 2rem 5rem;
+        }
+        .location-iframeAccordionContainer {
+            display: flex;
+            justify-content: space-between;
+            gap: 2%;
+            align-items: flex-start;
+            flex-direction: row;
+        }
+        .location-iframeContainer {
+            flex: 0 0 48%;
+        }
+        .iframeMap {
+            width: 100%;
+            height: 50vh;
+            display: block;
+            border: none;
+        }
+        .location-accordionContainer {
+            flex: 0 0 48%;
+            padding: 0 10px;
+        }
+        .location-accordionDropdownContainer {
+            border-bottom: 1px solid #ddd;
+            padding: 0 10px;
+        }
+        .location-accordionBtn {
+            width: 100%;
+            color: #9d7f19;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .location-accordionContent {
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .location-accordionContent-visible {
+            max-height: 1000px;
+        }
+        .location-accordion-item {
+            display: flex;
+            align-items: center;
+            gap: 2%;
+            padding: 7px 10px;
+        }
+        .location-itemContent {
+            flex: 0 0 75%;
+        }
+        .location-itemTime {
+            flex: 0 0 20%;
+        }
+        .location-accordionArrow {
+            transform: rotate(-180deg);
+            transition: transform 0.3s ease-in-out;
+        }
+        .location-arrowActive {
+            transform: rotate(-90deg);
+        }
+        .location-BtnContainer {
+            text-align: center;
+            padding: 25px 0;
+        }
+        .locationBtn {
+            padding: 10px 20px;
+            border: 1px solid #9d7f19;
+            color: #9d7f19;
+            background-color: #fff;
+            font-size: 0.875rem;
+            width: 100px;
+        }
+        .locationBtn:hover {
+            background-color: #9d7f19;
+            color: #fff;
+        }
+        @media (max-width:768px) {
+            .location-container {
+                padding: 2rem 1rem;
+            }
+            .location-iframeAccordionContainer {
+                flex-direction: column;
+            }
+            .location-iframeContainer {
+                flex: 0 0 100%;
+                width: 100%;
+            }
+            .iframeMap {
+                height: 40vh;
+            }
+            .location-accordionContainer {
+                flex: 0 0 100%;
+                width: 100%;
+                padding: 0px;
+                margin-top: 10px;
+            }
+            .location-accordionDropdownContainer {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section-container">
+        <div class="location-container">
+            <h2 class="section-heading">Location Advantage</h2>
+            <p class="section-subheading">Explore the neighbourhood</p>
+            <div class="location-iframeAccordionContainer">
+            <div class="location-iframeContainer">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1440.5069711400765!2d73.966816!3d18.562575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3947b794f33%3A0xf5e760a17ac09862!2sLodha%20Giardino%20Construction!5e1!3m2!1sen!2sin!4v1755493908023!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lodha reservio" class="iframeMap"></iframe>
+            </div>
+            <div class="location-accordionContainer">
+                <div class="location-accordionDropdownContainer">
+                    <button class="location-accordionBtn">
+                        <span><i class="fa fa-road"></i> Connectivity</span>
+                        <span><i class="fa fa-chevron-left location-accordionArrow location-arrowActive"></i></span>
+                    </button>
+                    <div class="location-accordionContent location-accordionContent-visible">
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-accordionDropdownContainer">
+                    <button class="location-accordionBtn">
+                        <span><i class="fa fa-road"></i> Connectivity</span>
+                        <span><i class="fa fa-chevron-left location-accordionArrow"></i></span>
+                    </button>
+                    <div class="location-accordionContent">
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-accordionDropdownContainer">
+                    <button class="location-accordionBtn">
+                        <span><i class="fa fa-road"></i> Connectivity</span>
+                        <span><i class="fa fa-chevron-left location-accordionArrow"></i></span>
+                    </button>
+                    <div class="location-accordionContent">
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="location-BtnContainer">
+                <button class="locationBtn">Enquire Now</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        let accordionBtn = document.querySelectorAll(".location-accordionBtn");
+        let accordionContent = document.querySelectorAll(".location-accordionContent");
+        let accordionArrow = document.querySelectorAll(".location-accordionArrow");
+        accordionBtn.forEach((element,index)=>{
+            element.addEventListener("click",(e)=>{
+                e.preventDefault();
+                if (accordionContent[index].classList.contains("location-accordionContent-visible")){
+                    accordionContent[index].classList.remove("location-accordionContent-visible");
+                    accordionArrow[index].classList.remove("location-arrowActive");
+                    return;
+                }
+                for (let i=0;i<accordionBtn.length;i++) {
+                    accordionContent[i].classList.remove("location-accordionContent-visible");
+                    accordionArrow[i].classList.remove("location-arrowActive");
+                }
+                accordionContent[index].classList.add("location-accordionContent-visible");
+                accordionArrow[index].classList.add("location-arrowActive");
+            })
+        })
+    </script>
+</body>
+</html>

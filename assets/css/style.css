@@ -65,6 +65,10 @@
             background-color: #fff;
             font-size: 0.875rem;
         }
+        .overviewBtn:hover {
+            background-color: #9d7f19;
+            color: #fff;
+        }
         .readMoreLink {
             color: #9d7f19;
             margin-bottom: 1rem;
@@ -124,6 +128,10 @@
             margin: 0 auto;
             width: 100px;
         }
+        .highlightDeskBtn:hover{
+            background-color: #9d7f19;
+            color: #fff;
+        }
         .highlight-list li span {
             display: none;
         }
@@ -163,6 +171,10 @@
                 width: 100px;
                 display: block;
                 text-align: center;
+            }
+            .highlightMobileBtn:hover {
+                background-color: #9d7f19;
+                color: #fff;
             }
             .MobilehighlightBtn-Container {
                 display: block;
@@ -211,9 +223,9 @@
             background: #ffffffde;
             border-radius: 24px;
             padding: 1.5rem 1rem;
-            box-shadow: 
+            /* box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                inset 0 1px 0 rgba(255, 255, 255, 0.1); */
             max-width: 290px;
             width: 100%;
             color: white;
@@ -656,7 +668,14 @@
             padding: 10px 20px;
             border: 1px solid #9d7f19;
             color: #9d7f19;
+            background-color: #fff;
+            font-size: 0.875rem;
         }
+        .downloadAmenitiesBtn:hover{
+            background-color: #9d7f19;
+            color: #fff;
+        }
+
 
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -914,6 +933,7 @@
             padding: 10px 20px;
             border: 1px solid #9d7f19;
             color: #9d7f19;
+            font-size: 0.875rem;
         }
         .downloadfloorBtn:hover {
             background-color: #9d7f19;
