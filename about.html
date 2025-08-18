@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        @font-face {
+            font-family: "Futura BK BT";
+            src: url('assets/fonts/FuturaBkBTBook.ttf') format("truetype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        } 
+        .about-container {
+            padding: 2rem 5rem;
+        }
+        .about-btnContainer {
+            text-align: center;
+        }
+        .aboutBtn {
+            color: #9d7f19;
+            background-color: #fff;
+            border: 1px solid #9d7f19;
+            padding: 10px 20px;
+            width: 100px;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+        .aboutBtn:hover {
+            background-color: #9d7f19;
+            color: #fff;
+        }
+        .about-ImageContainer {
+            text-align: center;
+        }
+        .aboutLogoImg {
+            /* box-shadow: 0 0 5px 5px #f0f0f0; */
+            padding: 10px;
+            width: 150px;
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+        @media (max-width:768px) {
+            .about-container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section-container">
+        <div class="about-container">
+            <div class="about-ImageContainer">
+            <img src="assets/images/logo/devlogo.webp" alt="lodha group" class="aboutLogoImg" loading="lazy"/>
+            </div>
+            <h2 class="section-heading">About Lodha Group</h2>
+            <p class="clamptext">Lodha Group is one of India's most reputed and trusted real estate developers. Since 1980, the company has established itself as a reliable builder in the Indian real estate market. The developer is committed to quality, innovation, and professionalism. Lodha Group has earned many awards and accolades over the years. India Realty Awards has recognized them four times as "Builder of the Year." In 2016, the Economic Times awarded the group the "Most Trusted Real Estate Brand" award, recognizing the group as one of the country's most trusted real estate developers. Lodha Group is known for creating luxurious, high-end commercial and residential spaces. Lodha Bellissimo, Lodha The Park, and Lodha Fiorenza are some of their most prestigious projects in Mumbai. Additionally, they have developed projects in Pune, Hyderabad, and Bengaluru.</p>
+            <a href="#" class="readMoreLink"> Read More </a>
+            <div class="about-btnContainer">
+                <button class="aboutBtn">Enquire Now</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-container">
+
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
