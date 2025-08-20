@@ -60,14 +60,14 @@
             width: 100px;
             margin-top: 1rem;
             padding: 10px 20px;
-            color: #9d7f19;
+            color: #fff;
             border: 1px solid #9d7f19;
-            background-color: #fff;
+            background-color: #9d7f19;
             font-size: 0.875rem;
         }
         .overviewBtn:hover {
-            background-color: #9d7f19;
-            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
         .readMoreLink {
             color: #9d7f19;
@@ -120,17 +120,17 @@
             display: none;
         }
         .highlightDeskBtn {
-            color: #9d7f19;
+            color: #fff;
             border: 1px solid #9d7f19;
-            background-color: #fff;
+            background-color: #9d7f19;
             font-size: 0.875rem;
             padding: 10px 20px;
             margin: 0 auto;
             width: 100px;
         }
         .highlightDeskBtn:hover{
-            background-color: #9d7f19;
-            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
         .highlight-list li span {
             display: none;
@@ -163,8 +163,8 @@
                 list-style-type: none;
             }
             .highlightMobileBtn {
-                background-color: #fff;
-                color: #9d7f19;
+                background-color: #9d7f19;
+                color: #fff;
                 border: 1px solid #9d7f19;
                 padding: 10px 20px;
                 font-size: 0.875rem;
@@ -173,8 +173,8 @@
                 text-align: center;
             }
             .highlightMobileBtn:hover {
-                background-color: #9d7f19;
-                color: #fff;
+                transform: translateY(-1px);
+                box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
             }
             .MobilehighlightBtn-Container {
                 display: block;
@@ -340,8 +340,8 @@
         }
 
         .design2 .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(198, 169, 97, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
         @media (max-width: 768px) {
             
@@ -667,13 +667,13 @@
             /* width: 100px; */
             padding: 10px 20px;
             border: 1px solid #9d7f19;
-            color: #9d7f19;
-            background-color: #fff;
+            color: #fff;
+            background-color: #9d7f19;
             font-size: 0.875rem;
         }
         .downloadAmenitiesBtn:hover{
-            background-color: #9d7f19;
-            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
 
 
@@ -933,13 +933,13 @@
             /* width: 100px; */
             padding: 10px 20px;
             border: 1px solid #9d7f19;
-            color: #9d7f19;
+            color: #fff;
             font-size: 0.875rem;
-            background-color: #fff;
+            background-color: #9d7f19;
         }
         .downloadfloorBtn:hover {
-            background-color: #9d7f19;
-            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
 
         /* Responsive Design */
@@ -1053,8 +1053,8 @@
             cursor: pointer;
         }
         .priceEnquireBtn {
-            color: #9d7f19;
-            background-color: #fff;
+            color: #fff;
+            background-color: #9d7f19;
             /* width: 100px; */
             padding: 10px 20px;
             font-size: 0.875rem;
@@ -1067,8 +1067,8 @@
             right: 5rem; */
         }
         .priceEnquireBtn:hover {
-            background-color: #9d7f19;
-            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
         @media (max-width:768px) {
             .price-container {
@@ -1355,11 +1355,12 @@
             /* width: 100px; */
             padding: 10px 20px;
             border: 1px solid #9d7f19;
-            color: #9d7f19;
+            color: #fff;
+            background-color: #9d7f19;
         }
         .downloadGalleryBtn:hover {
-            background-color: #9d7f19;
-            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
 
         /* Responsive Design */
@@ -1555,14 +1556,14 @@
         .locationBtn {
             padding: 10px 20px;
             border: 1px solid #9d7f19;
-            color: #9d7f19;
-            background-color: #fff;
+            color: #fff;
+            background-color: #9d7f19;
             font-size: 0.875rem;
             width: 100px;
         }
         .locationBtn:hover {
-            background-color: #9d7f19;
-            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
         @media (max-width:768px) {
             .location-container {
@@ -1600,8 +1601,8 @@
             text-align: center;
         }
         .aboutBtn {
-            color: #9d7f19;
-            background-color: #fff;
+            color: #fff;
+            background-color: #9d7f19;
             border: 1px solid #9d7f19;
             padding: 10px 20px;
             width: 100px;
@@ -1609,8 +1610,8 @@
             text-align: center;
         }
         .aboutBtn:hover {
-            background-color: #9d7f19;
-            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(198, 169, 97, 0.4);
         }
         .about-ImageContainer {
             text-align: center;
