@@ -370,6 +370,7 @@ header.white .burgerMenu span {
 <!--Overview-->
 <section class="section-container">
         <div class="overview-Container">
+            <img src="assets/images/logo/logo.webp" alt="logo of lodha reservio" width="150" height="70" loading="lazy" style="background-color: #fff;padding: 5px 10px;margin-bottom: 1rem;">
             <h2 class="section-heading">Overview</h2>
             <p class="section-subheading">Welcome to Lodha Riservo Vikhroli</p>
             <p class="clamptext">An exclusive Lodha office spaces mark a new chapter in India's commercial real estate landscape. Leveraging our expertise in redefining residential living through iconic addresses, Lodha now emerges as a formidable presence in the commercial sector.
@@ -421,6 +422,58 @@ header.white .burgerMenu span {
             </div>
         </div>
         
+    </section>
+
+<!--Price-->
+<section class="section-container">
+        <div class="price-container">
+            <h2 class="section-heading" style="text-align: center;">Price Plan</h2>
+            <p class="section-subheading" style="text-align: center;">Explore 3,4 BHK Price</p>
+            <div class="price-listContainer">
+                <div class="price-itemContainer">
+                    <div class="price-leftContainer">
+                        <p class="price-type">2 Bhk</p>
+                        <p class="price-carpet">3000 Sq. Ft</p>
+                    </div>
+                    <div class="price-rightContainer">
+                        <p>₹ 2.08 Cr++</p>
+                    </div>
+                </div>
+                <div class="price-itemContainer">
+                    <div class="price-leftContainer">
+                        <p class="price-type">2+2 Jodi Apartment</p>
+                        <p class="price-carpet">3000 Sq. Ft</p>
+                    </div>
+                    <div class="price-rightContainer">
+                        <p>₹ 2.08 Cr++</p>
+                    </div>
+                </div>
+                <div class="price-clampContainer">
+                    <div class="price-itemContainer">
+                        <div class="price-leftContainer">
+                            <p class="price-type">2+2 Jodi Apartment</p>
+                            <p class="price-carpet">3000 Sq. Ft</p>
+                        </div>
+                        <div class="price-rightContainer">
+                            <p>₹ 2.08 Cr++</p>
+                        </div>
+                    </div>
+                    <div class="price-itemContainer">
+                        <div class="price-leftContainer">
+                            <p class="price-type">2+2 Jodi Apartment</p>
+                            <p class="price-carpet">3000 Sq. Ft</p>
+                        </div>
+                        <div class="price-rightContainer">
+                            <p>₹ 2.08 Cr++</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="price-MoreLinkcontainer">
+            <a href="" class="price-MoreLink">View More</a>
+            <button class="priceEnquireBtn">Download All Pricing Sheet</button>
+            </div>
+        </div>
     </section>
 <!--Amenities-->
 <section class="section-container">
@@ -553,7 +606,221 @@ header.white .burgerMenu span {
 
     
     </section>
+<!--Gallery-->
+<section class="section-container">
+    <div class="gallery-container">
+        <h2 class="section-heading">Gallery</h2>
+        <p class="section-subheading">Preminum Facilities for your elevated Lifestyle</p>
+        
+        <div class="gallery-wrapper">
+            <div class="gallery-track" id="galleryTrack">
+                <!-- Only original images (no duplicates) -->
+                <div class="gallery-slide">
+                    <div class="gallery-imageContainer">
+                    <img class="gallery-image" src="assets/images/gallery/swimming.webp" alt="Swimming Pool" loading="lazy">
+                    </div>
+                    <!-- <div class="gallery-text-overlay">Infinity Pool</div> -->
+                </div>
+                <div class="gallery-slide">
+                    <div class="gallery-imageContainer">
+                    <img class="gallery-image" src="assets/images/gallery/gym.webp" alt="Fitness Center" loading="lazy">
+                    </div>
+                    <!-- <div class="gallery-text-overlay">Fitness Center</div> -->
+                </div>
+                <div class="gallery-slide">
+                    <div class="gallery-imageContainer">
+                    <img class="gallery-image" src="assets/images/gallery/indoorgames.webp" alt="Indoor Games Area" loading="lazy">
+                    </div>
+                    <!-- <div class="gallery-text-overlay">Indoor Games</div> -->
+                </div>
+                <div class="gallery-slide">
+                    <div class="gallery-imageContainer">
+                    <img class="gallery-image" src="assets/images/gallery/temple.webp" alt="Temple" loading="lazy">
+                    </div>
+                    <!-- <div class="gallery-text-overlay">Temple</div> -->
+                </div>
+                <div class="gallery-slide">
+                    <div class="gallery-imageContainer">
+                    <img class="gallery-image" src="assets/images/gallery/kids.webp" alt="kids play area" loading="lazy"></div>
+                    <!-- <div class="gallery-text-overlay">Kids Play Area</div> -->
+                </div>
+                <div class="gallery-slide">
+                    <div class="gallery-imageContainer">
+                    <img class="gallery-image" src="assets/images/gallery/theatre.webp" alt="theatre" loading="lazy"></div>
+                    <!-- <div class="gallery-text-overlay">Theatre</div> -->
+                </div>
+            </div>
+            <div class="gallery-controlsContainer">
+            <button class="gallery-controls gallery-prev" id="galleryPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-controls gallery-next" id="galleryNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            </div>
+            <div style="text-align: center;margin: 1rem 0;">
+                <button class="downloadGalleryBtn">Download Gallery</button>
+            </div>
+        </div>
+        
+        <!-- <div class="gallery-navigation" id="galleryDots">
+            
+        </div> -->
+    </div>
 
+    <!-- Lightbox Modal -->
+    <div class="gallery-lightbox" id="galleryLightbox">
+        <div class="gallery-lightbox-content">
+            <button class="gallery-lightbox-close" id="galleryLightboxClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <img class="gallery-lightbox-image" id="galleryLightboxImage" src="" alt="">
+            
+            <div class="gallery-lightbox-title" id="galleryLightboxTitle"></div>
+            <div class="gallery-lightbox-counter" id="galleryLightboxCounter">1 / 6</div>
+            <div class="gallery-lightbox-arrowControls">
+                <button class="gallery-lightbox-nav gallery-lightbox-prev" id="galleryLightboxPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-lightbox-nav gallery-lightbox-next" id="galleryLightboxNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            </div>
+        </div>
+    </div>
+    </section>
+<!--Location -->
+<section class="section-container">
+        <div class="location-container">
+            <h2 class="section-heading">Location Advantage</h2>
+            <p class="section-subheading">Explore the neighbourhood</p>
+            <div class="location-iframeAccordionContainer">
+            <div class="location-iframeContainer">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1440.5069711400765!2d73.966816!3d18.562575!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3947b794f33%3A0xf5e760a17ac09862!2sLodha%20Giardino%20Construction!5e1!3m2!1sen!2sin!4v1755493908023!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lodha reservio" class="iframeMap"></iframe>
+            </div>
+            <div class="location-accordionContainer">
+                <div class="location-accordionDropdownContainer">
+                    <button class="location-accordionBtn">
+                        <span><i class="fa fa-road"></i> Connectivity</span>
+                        <span><i class="fa fa-chevron-left location-accordionArrow location-arrowActive"></i></span>
+                    </button>
+                    <div class="location-accordionContent location-accordionContent-visible">
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-accordionDropdownContainer">
+                    <button class="location-accordionBtn">
+                        <span><i class="fa fa-road"></i> Connectivity</span>
+                        <span><i class="fa fa-chevron-left location-accordionArrow"></i></span>
+                    </button>
+                    <div class="location-accordionContent">
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-accordionDropdownContainer">
+                    <button class="location-accordionBtn">
+                        <span><i class="fa fa-road"></i> Connectivity</span>
+                        <span><i class="fa fa-chevron-left location-accordionArrow"></i></span>
+                    </button>
+                    <div class="location-accordionContent">
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                        <div class="location-accordion-item">
+                            <p class="location-itemContent">CP Jupitor Hospital</p>
+                            <p class="loocation-itemTime">10 Mins</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="location-BtnContainer">
+                <button class="locationBtn">Enquire Now</button>
+            </div>
+        </div>
+    </section>
+<!--About-->
+<section class="section-container">
+        <div class="about-container">
+            <div class="about-ImageContainer">
+            <img src="assets/images/logo/devlogo.webp" alt="lodha group" class="aboutLogoImg" loading="lazy"/>
+            </div>
+            <h2 class="section-heading">About Lodha Group</h2>
+            <p class="clamptext">Lodha Group is one of India's most reputed and trusted real estate developers. Since 1980, the company has established itself as a reliable builder in the Indian real estate market. The developer is committed to quality, innovation, and professionalism. 
+                <br><br>
+                Lodha Group has earned many awards and accolades over the years. India Realty Awards has recognized them four times as "Builder of the Year." In 2016, the Economic Times awarded the group the "Most Trusted Real Estate Brand" award, recognizing the group as one of the country's most trusted real estate developers. Lodha Group is known for creating luxurious, high-end commercial and residential spaces. Lodha Bellissimo, Lodha The Park, and Lodha Fiorenza are some of their most prestigious projects in Mumbai. Additionally, they have developed projects in Pune, Hyderabad, and Bengaluru.</p>
+            <a href="#" class="readMoreLink"> Read More </a>
+            <div class="about-btnContainer">
+                <button class="aboutBtn">Enquire Now</button>
+            </div>
+        </div>
+    </section>
+<!-- Footer -->
+ <footer class=footer-container>
+<div class=footer-content>
+<div class=footer-qr-section>
+<div class=footer-qr-grid>
+<div class=footer-qr-item>
+<div class=footer-qr-container>
+<img src=assets/images/qr/qr.webp alt="Website QR Code" class=footer-qr-code loading=lazy>
+</div>
+<div class=footer-qr-number>P51800001585</div>
+</div>
+<div class=footer-qr-item>
+<div class=footer-qr-container>
+<img src=assets/images/qr/qr2.webp alt="Website QR Code" class=footer-qr-code loading=lazy>
+</div>
+<div class=footer-qr-number>P51800001681</div>
+</div>
+
+</div>
+</div>
+<div class=footer-rera-section>
+<div class=footer-rera-info>
+<div class=footer-rera-item>
+<span class=footer-rera-checkmark>✔</span>
+<span class=footer-rera-text>Project Registered under Government of India RERA Act 2016 | <a href=http://www.maharera.maharashtra.gov.in target=_blank class=footer-rera-link>www.maharera.maharashtra.gov.in</a></span>
+</div>
+<div class=footer-rera-item>
+<span class=footer-rera-checkmark>✔</span>
+<span class=footer-rera-text>Government RERA Authorised Advertiser's: Homesfy Realty Ltd , Registration No- A51900000136</span>
+</div>
+<div class=footer-rera-item>
+<span class=footer-rera-checkmark>✔</span>
+<span class=footer-rera-text>Project RERA: P51800001585, P51800001681</span>
+</div>
+</div>
+</div>
+<div class=footer-disclaimer>
+<p class=footer-disclaimer-text>
+Disclaimer: We're an authorized marketing channel partner. The provided content, images & video are sourced from respective owners and are provided only for information purposes, it does not constitute an offer to buy any service. The price plans mentioned are subject to change without prior notice, and the properties mentioned are subject to availability. You can receive a call, SMS, or email on contact details registered with us.
+</p>
+</div>
+</div>
+<div class=footer-links>
+<div class=footer-links-container>
+<a href="Privacy-Policy.html" class=footer-link>Privacy Policy</a>
+<span class=footer-separator>|</span>
+<a href="Terms-Conditions.html" class=footer-link>Terms & Conditions</a>
+</div>
+</div>
+</footer>
 
 <script src="assets/js/script.js" defer async></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
