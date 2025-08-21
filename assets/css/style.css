@@ -205,7 +205,7 @@
 
 
 /* Optional fade effect for AOS fade triggers */
-[data-aos^=fade][data-aos^=fade] {
+/* [data-aos^=fade][data-aos^=fade] {
   opacity: 0;
   transition-property: opacity, transform;
 }
@@ -213,7 +213,13 @@
 [data-aos^=fade][data-aos^=fade].aos-animate {
   opacity: 1;
   transform: translateZ(0);
-}
+} */
+.fade-up {
+    transform: translateY(10%);
+  }
+  .fade-up.aos-animate {
+    transform: translateY(0);
+  }
 
 
 
@@ -360,19 +366,20 @@
 
 
         /* Banner Css Animate */
-        .banner-contentContainer ,.siteVisitImage{
-    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        .banner-contentContainer,
+        .siteVisitImage{
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%) ;
     transition: all 1s cubic-bezier(.215, .61, .355, 1);
 }
 
 .banner-contentContainer.aos-animate, .siteVisitImage.aos-animate{
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) ;
     transition: all 1s cubic-bezier(.215, .61, .355, 1);
     transition-delay: 0.5s !important;
 }
 
 /* Smooth fade-up animation for both scroll directions */
-.fade-up {
+/* .fade-up {
   opacity: 0;
   transform: translateY(10%);
   transition: all 1s cubic-bezier(.215, .61, .355, 1);
@@ -383,7 +390,7 @@
   transform: translateY(0);
   transition: all 1s cubic-bezier(.215, .61, .355, 1);
   transition-delay: 0.5s !important;
-}
+} */
 
   /* *:not(img){
     transform: translateY(10%);
@@ -1697,7 +1704,7 @@
 
 .footer-disclaimer {
   width: 100%;
-  max-width: 800px;
+  padding: 1rem 10rem;
   text-align: center
 }
 
@@ -1918,7 +1925,9 @@
     font-size: 15px
   }
 
-
+  .footer-disclaimer {
+    padding: 0rem 1rem ;
+  }
 }
 
 @media (max-width:480px) {
