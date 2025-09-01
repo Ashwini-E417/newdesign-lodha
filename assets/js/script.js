@@ -1011,3 +1011,170 @@ window.addEventListener("load",(e)=>{
                 accordionArrow[index].classList.add("location-arrowActive");
             })
         })
+
+
+
+ 
+        // Close popup functionality
+        const closeBtn = document.getElementById('closeBtn');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const form = document.getElementById('callbackForm');
+        const formtitle = document.querySelector(".form-title");
+
+        closeBtn.addEventListener('click', function() {
+            popupOverlay.style.display = 'none';
+        });
+
+        // Close popup when clicking outside the form
+        popupOverlay.addEventListener('click', function(e) {
+            console.log(e.target);
+            if (e.target === document.querySelector(".popup-overlay")
+            ) {
+                popupOverlay.style.display = 'none';
+            }
+        });
+
+        
+
+        
+        // Checkbox is now handled by the label for attribute and CSS
+        const checkbox = document.getElementById('privacyCheckbox');
+        
+        // Initial state - checkbox is checked by default and :after pseudo-element shows
+        // The CSS handles the visual toggle automatically
+
+        // Phone number input formatting (optional enhancement)
+         
+        window.addEventListener("load",(e)=>{
+            e.preventDefault();
+            setTimeout(()=>{
+                formtitle.innerHTML = "Limited Time Offer!"
+                popupOverlay.style.display = "block";
+            },4000)
+        })
+
+        document.querySelectorAll(".popupTrigger").forEach((element)=>{
+            element.addEventListener("click",(e)=>{
+                e.preventDefault();
+                formtitle.innerHTML = element.getAttribute("data-heading");
+                popupOverlay.style.display = "block";
+            })
+        })
+
+
+
+
+        const reraButton = document.getElementById('reraButton');
+        const reraPanel = document.getElementById('reraPanel');
+        const reraClose = document.getElementById('reraClose');
+        const progressBar = document.getElementById('progressBar');
+        
+        let autoCloseTimer = null;
+        let progressTimer = null;
+        let initialScrollPosition = 0;
+        let isOpen = false;
+
+        // Function to open panel
+        function openPanel() {
+            reraPanel.classList.add('active');
+            isOpen = true;
+            initialScrollPosition = window.scrollY;
+            reraButton.style.transform = `translateX(-${reraPanel.clientWidth}px) scale(0)`;
+            startAutoCloseTimer();
+        }
+
+        // Function to close panel
+        function closePanel() {
+            reraPanel.classList.remove('active');
+            isOpen = false;
+            clearAutoCloseTimer();
+            reraButton.style.transform = `translateX(0) scale(1)`;
+        }
+
+        // Auto close timer with progress bar
+        function startAutoCloseTimer() {
+            let progress = 0;
+            const duration = 10000; // 10 seconds
+            const interval = 100; // Update every 100ms
+            
+            progressTimer = setInterval(() => {
+                progress += interval;
+                const percentage = (progress / duration) * 100;
+                progressBar.style.width = percentage + '%';
+                
+                if (progress >= duration) {
+                    closePanel();
+                }
+            }, interval);
+        }
+
+        // Clear auto close timer
+        function clearAutoCloseTimer() {
+            if (progressTimer) {
+                clearInterval(progressTimer);
+                progressTimer = null;
+            }
+            progressBar.style.width = '0%';
+        }
+
+        // Event listeners
+        reraButton.addEventListener('click', function() {
+            if (!isOpen) {
+                openPanel();
+            }
+        });
+
+        // reraClose.addEventListener('click', function() {
+        //     closePanel();
+        // });
+
+        // Close on scroll
+        let scrollTimeout = null;
+        window.addEventListener('scroll', function() {
+            if (isOpen) {
+                const currentScroll = window.scrollY;
+                const scrollDifference = Math.abs(currentScroll - initialScrollPosition);
+                
+                // Close if scrolled more than 100px
+                if (scrollDifference > 100) {
+                    closePanel();
+                }
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isOpen) {
+                closePanel();
+            }
+        });
+
+        // Prevent panel from closing when interacting with it
+        reraPanel.addEventListener('mouseenter', function() {
+            if (isOpen) {
+                clearAutoCloseTimer();
+            }
+        });
+
+        reraPanel.addEventListener('mouseleave', function() {
+            if (isOpen) {
+                startAutoCloseTimer();
+            }
+        });
+
+
+        document.querySelectorAll(".nav-item").forEach(element=>{
+            element.addEventListener("click",(e)=>{
+                e.preventDefault();
+                if(!element.classList.contains("popupTrigger")) {
+                    const target = element.getAttribute("href").substring(1);
+                    const targetContainer = document.getElementById(target);
+                    targetContainer.scrollIntoView({
+                        behavior:"smooth",
+                    })
+                }
+                if (document.querySelector(".sidebar").classList.contains("sidebaractive") & window.innerWidth<769){
+                    document.querySelector(".sidebar").classList.remove("sidebaractive");
+                }
+            })
+        })

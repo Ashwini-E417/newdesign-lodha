@@ -5,8 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Header</title>
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com" media="print">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin media="print">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet" media="print">
+
+
+<link rel="preload" href="/assets/images/banner/banner1.webp" as="image">
 <style>
      @font-face {
     font-family: "Futura BK BT";
@@ -304,13 +311,13 @@ header.white .burgerMenu span {
         </nav>
         <div class="sidebar">
             <span class="mobile-navbar" role="menubar">
-                <a href="#" class="nav-item nav-active" title="Overview" aria-label="Overview" role="menuitem">Overview</a>
-                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Price Plan</a>
-                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Amenities</a>
-                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Floor Plan</a>
-                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Gallery</a>
-                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Location</a>
-                <a href="#" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Brochure</a>
+                <a href="#overview" class="nav-item nav-active" title="Overview" aria-label="Overview" role="menuitem">Overview</a>
+                <a href="#price" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Price Plan</a>
+                <a href="#amenities" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Amenities</a>
+                <a href="#floor" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Floor Plan</a>
+                <a href="#gallery" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Gallery</a>
+                <a href="#location" class="nav-item" title="Overview" aria-label="Overview" role="menuitem">Location</a>
+                <a href="#" class="nav-item popupTrigger" data-heading="Enquire Now" title="Overview" aria-label="Overview" role="menuitem">Brochure</a>
             </span>
         </div>
     </header>
@@ -319,7 +326,7 @@ header.white .burgerMenu span {
         <div class="bannerContainer">
             <div class="bannerSlide">
                 <div class="banner">
-                    <img src="assets/images/banner/banner.webp" alt="Banner" class="bannerImage" />
+                    <img src="assets/images/banner/banner1.webp" alt="Banner" class="bannerImage" />
                 </div>
             </div>
             <!-- <div class="bannerOverlay"></div> -->
@@ -344,7 +351,7 @@ header.white .burgerMenu span {
                 <div class="price">₹ 3 Cr* <span class="price-suffix">Onwards</span></div>
             </div>
             <div style="text-align: center;">
-            <button class="cta-btn">Enquire Now</button>
+            <button class="cta-btn popupTrigger" data-heading="Enquire Now">Enquire Now</button>
             </div>
         </div>
         </section>
@@ -353,13 +360,13 @@ header.white .burgerMenu span {
 <section class="secondary-NavigationContainer">
     <div class="secondary-Navbar">
         <span class="secondary-NavbarFlexContainer">
-            <a href="#" class="nav-item nav-active">Overview</a>
-            <a href="#" class="nav-item">Price Plan</a>
-            <a href="#" class="nav-item">Amenities</a>
-            <a href="#" class="nav-item">Floor Plan</a>
-            <a href="#" class="nav-item">Gallery</a>
-            <a href="#" class="nav-item">Location</a>
-            <a href="#" class="nav-item">Brochure</a>
+            <a href="#overview" class="nav-item nav-active">Overview</a>
+            <a href="#price" class="nav-item">Price Plan</a>
+            <a href="#amenities" class="nav-item">Amenities</a>
+            <a href="#floor" class="nav-item">Floor Plan</a>
+            <a href="#gallery" class="nav-item">Gallery</a>
+            <a href="#location" class="nav-item">Location</a>
+            <a href="#" class="nav-item popupTrigger" data-heading="Enquire Now">Brochure</a>
         </span>
         <span class="desktop-secondIvr">
             <button class="nav-MobileBtn2"><img src="assets/images/icons/phoneblack.gif" width="25" height="25" loading="lazy"><span>+919876543210</span></button>
@@ -368,7 +375,7 @@ header.white .burgerMenu span {
     </div>
 </section>
 <!--Overview-->
-<section class="section-container">
+<section class="section-container" id="overview">
         <div class="overview-Container">
             <img src="assets/images/logo/logo.webp" alt="logo of lodha reservio" width="150" height="70" loading="lazy" style="background-color: #fff;padding: 5px 10px;margin-bottom: 1rem;">
             <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Overview</h2>
@@ -378,7 +385,7 @@ header.white .burgerMenu span {
                 <br><br>
             In anticipation of India's potential as a global technology and business hub, we lead with innovative solutions. Our meticulously crafted workplaces promote collaboration and productivity, featuring state-of-the-art amenities and cutting-edge technology to cater to leading global giants and Fortune 500 companies. Committed to excellence, , we go beyond mere construction to create dynamic ecosystems where individuals, businesses, and communities can flourish. With our forward-thinking approach, we not only address present needs but also pave the way for the future of the nation.</p>
             <a href="#" class="readMoreLink"> Read More </a>
-            <button class="overviewBtn" >Enquire Now</button>
+            <button class="overviewBtn popupTrigger" data-heading="Enquire Now" >Enquire Now</button>
             </div>
         </div>
     </section>
@@ -413,20 +420,20 @@ header.white .burgerMenu span {
                 </ul>
                 </div>
                 <div style="text-align: center;">
-                    <button class="highlightDeskBtn">
+                    <button class="highlightDeskBtn popupTrigger" data-heading="Enquire Now">
                         Know More
                     </button>
                 </div>
             </div>
             <div class="MobilehighlightBtn-Container">
-                <button class="highlightMobileBtn">Know More</button>
+                <button class="highlightMobileBtn popupTrigger" data-heading="Enquire Now">Know More</button>
             </div>
         </div>
         
     </section>
 
 <!--Price-->
-<section class="section-container">
+<section class="section-container" id="price">
         <div class="price-container">
             <h2 class="section-heading" style="text-align: center;" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Price Plan</h2>
             <p class="section-subheading" style="text-align: center;" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Explore 3,4 BHK Price</p>
@@ -472,18 +479,18 @@ header.white .burgerMenu span {
             </div>
             <div class="price-MoreLinkcontainer" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
             <a href="" class="price-MoreLink">View More</a>
-            <button class="priceEnquireBtn">Download All Pricing Sheet</button>
+            <button class="priceEnquireBtn popupTrigger" data-heading="Send Me Pricing Details">Download All Pricing Sheet</button>
             </div>
         </div>
     </section>
 <!--Amenities-->
-<section class="section-container">
+<section class="section-container" id="amenities">
     <div class="amenities-container">
         <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Amenities</h2>
         <p class="section-subheading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Preminum Facilities for your elevated Lifestyle</p>
         
-        <div class="amenities-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-            <div class="amenities-track" id="amenitiesTrack">
+        <div class="amenities-wrapper siteVisitImage" data-aos data-aos-delay="100" data-aos-duration="1000">
+            <div class="amenities-track " id="amenitiesTrack" >
                 <!-- Only original images (no duplicates) -->
                 <div class="amenities-slide">
                     <div class="amenities-imageContainer">
@@ -529,7 +536,7 @@ header.white .burgerMenu span {
             </button>
             </div>
             <div style="text-align: center;margin: 1rem 0;">
-                <button class="downloadAmenitiesBtn">Download Amenities</button>
+                <button class="downloadAmenitiesBtn popupTrigger" data-heading="Download All Amenities" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Download Amenities</button>
             </div>
         </div>
         
@@ -561,28 +568,28 @@ header.white .burgerMenu span {
     </div>
     </section>
 <!--Floor Plan -->
-<section class="section-container">
+<section class="section-container" id="floor">
     <div class="floor-container">
         <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Floor Plan</h2>
         <p class="section-subheading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Explore All Plans Available</p>
         
-        <div class="floor-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+        <div class="floor-wrapper siteVisitImage" data-aos data-aos-delay="100" data-aos-duration="1000">
             <div class="floor-track" id="floorTrack" >
                 <!-- Only original images (no duplicates) -->
                 <div class="floor-slide">
-                    <div class="floor-imageContainer">
+                    <div class="floor-imageContainer popupTrigger" data-heading="Download Master Plan">
                     <img class="floor-image" src="assets/images/floor/master.webp" alt="master Plan" loading="lazy">
                     </div>
                     <div class="floor-text-overlay">Master Plan</div>
                 </div>
                 <div class="floor-slide">
-                    <div class="floor-imageContainer">
+                    <div class="floor-imageContainer popupTrigger" data-heading="Download Floor Plan">
                     <img class="floor-image" src="assets/images/floor/floorplan.webp" alt="Floor Plan - 3BHK" loading="lazy">
                     </div>
                     <div class="floor-text-overlay">Floor Plan-3BHK</div>
                 </div>
                 <div class="floor-slide">
-                    <div class="floor-imageContainer">
+                    <div class="floor-imageContainer popupTrigger" data-heading="Download 3 BHK Plan">
                     <img class="floor-image" src="assets/images/floor/3bhk.webp" alt="3 BHK" loading="lazy">
                     </div>
                     <div class="floor-text-overlay">3 BHK Plan</div>
@@ -598,7 +605,7 @@ header.white .burgerMenu span {
             </button>
             </div>
             <div style="text-align: center;margin: 1rem 0;">
-                <button class="downloadfloorBtn" >Download Floor Plan</button>
+                <button class="downloadfloorBtn popupTrigger" data-heading="Download All Floor Plans" >Download Floor Plan</button>
             </div>
         </div>
         
@@ -608,12 +615,12 @@ header.white .burgerMenu span {
     
     </section>
 <!--Gallery-->
-<section class="section-container">
+<section class="section-container" id="gallery">
     <div class="gallery-container">
         <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Gallery</h2>
         <p class="section-subheading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Preminum Facilities for your elevated Lifestyle</p>
         
-        <div class="gallery-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+        <div class="gallery-wrapper siteVisitImage" data-aos data-aos-delay="100" data-aos-duration="1000">
             <div class="gallery-track" id="galleryTrack">
                 <!-- Only original images (no duplicates) -->
                 <div class="gallery-slide">
@@ -660,7 +667,7 @@ header.white .burgerMenu span {
             </button>
             </div>
             <div style="text-align: center;margin: 1rem 0;">
-                <button class="downloadGalleryBtn">Download Gallery</button>
+                <button class="downloadGalleryBtn popupTrigger" data-heading="Download All Gallery Images">Download Gallery</button>
             </div>
         </div>
         
@@ -692,7 +699,7 @@ header.white .burgerMenu span {
     </div>
     </section>
 <!--Location -->
-<section class="section-container">
+<section class="section-container" id="location">
         <div class="location-container">
             <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Location Advantage</h2>
             <p class="section-subheading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Explore the neighbourhood</p>
@@ -752,7 +759,7 @@ header.white .burgerMenu span {
             </div>
             </div>
             <div class="location-BtnContainer" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                <button class="locationBtn">Enquire Now</button>
+                <button class="locationBtn popupTrigger" data-heading="Enquire Now">Enquire Now</button>
             </div>
         </div>
     </section>
@@ -770,7 +777,7 @@ header.white .burgerMenu span {
             <a href="#" class="readMoreLink" > Read More </a>
             </div>
             <div class="about-btnContainer">
-                <button class="aboutBtn" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Enquire Now</button>
+                <button class="aboutBtn popupTrigger" data-heading="Enquire Now" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Enquire Now</button>
             </div>
         </div>
     </section>
@@ -828,7 +835,94 @@ Disclaimer: We're an authorized marketing channel partner. The provided content,
 </div>
 </footer>
 
-<script src="assets/js/script.js" defer async></script>
+<section  id="popupOverlay">
+    <div class="popup-overlay" >
+        <div class="popup-form">
+            <button class="close-btn" id="closeBtn">✕</button>
+            
+            <h2 class="form-title">Request a call back</h2>
+            
+            <form id="callbackForm">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Enter Your Name" required>
+                </div>
+                
+                
+                <div class="form-group">
+                    <div class="select-wrapper">
+                        <select class="form-select" required placeholder="Select Country Code">
+                            <option value="+91" selected>India</option>
+                            <option value="india" selected>India</option>
+                            <option value="usa">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="canada">Canada</option>
+                            <option value="australia">Australia</option>
+                        </select>
+                        <span class="select-arrow">▼</span>
+                    </div>
+                </div>
+                
+                
+                <div class="form-group">
+                    <div class="phone-group">
+                        <input type="tel" class="form-input phone-input" placeholder="Enter Mobile Number" required>
+                    </div>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacyCheckbox" checked required style="display: none;">
+                    <label for="privacyCheckbox" class="formControlsCheck">
+                        I consent to the use of provided data in accordance with the <a
+                href=https://www.homesfy.co.in/privacy.html class="privacy-link">privacy policy</a>
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    </section>
+
+    <!-- RERA Button -->
+    <button class="rera-trigger" id="reraButton">Click here for<br>RERA details</button>
+
+    <!-- RERA Slide Panel -->
+    <div class="rera-slide-panel" id="reraPanel">
+        <div class="progress-bar" id="progressBar"></div>
+        
+        <div class="rera-content">
+            <div class="rera-flexLeft">
+            <div class="rera-title">MahaRERA registration numbers:</div>
+            <div class="rera-number">P51700047245</div>
+            <a href="https://maharera.maharashtra.gov.in/" class="rera-link" target="_blank">
+                https://maharera.maharashtra.gov.in/
+            </a>
+            </div>
+            <div class="qr-section">
+                <img src="assets/images/qr/qr.webp" alt="Qr Code" width="100" height="100" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+
+    <section class="ivr-container">
+  <div class="ivr">
+    <a class="ivr-item popupTrigger" data-heading="Enquire Now">
+      <img src="/assets/images/icons/enquire.svg" alt="Enquire Now" loading="lazy" width="22" height="22">
+      Enquire
+    </a>
+    <a href="#" class="ivr-item">
+      <img src="/assets/images/icons/call.svg" alt="Speak with the agent" loading="lazy" width="22" height="22">
+      Call
+    </a>
+    <a href="#" class="ivr-item">
+      <img src="/assets/images/icons/chat.svg" alt="Chat with the agent" loading="lazy" width="22" height="22">
+      Chat
+    </a>
+  </div>
+  </section>
+
+<script src="assets/js/script.js" defer></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({

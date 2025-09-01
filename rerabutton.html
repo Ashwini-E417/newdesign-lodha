@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RERA Slide-in Popup</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 200vh; /* Extra height for scrolling demo */
+            padding: 20px;
+        }
+
+        
+
+        /* RERA Button */
+        .rera-trigger {
+            position: fixed;
+            top: 40px;
+            right: 0px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #000;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            z-index: 1001;
+            border-radius: 4px 0 0 4px;
+            transition: all 0.3s ease;
+        }
+
+        /* RERA Slide Panel */
+        .rera-slide-panel {
+            position: fixed;
+            top: 40px;
+            right: -100%; /* Hidden initially */
+            width: fit-content;
+            height: fit-content;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            /* box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1); */
+            display: flex;
+            flex-direction: column;
+            padding: 10px 20px;
+            overflow-y: auto;
+        }
+
+        .rera-slide-panel.active {
+            right: 0;
+        }
+
+
+
+        .rera-content {
+            margin-top: 20px;
+            display: flex;
+            gap: 3%;
+            align-items: center;
+        }
+
+        .rera-title {
+            color: #000;
+            font-size: 12px;
+            line-height: 1.75;
+        }
+
+        .rera-number {
+            color: #000;
+            font-size: 12px;
+            line-height: 1.75;
+        }
+
+        .rera-link {
+            color: #8B5A2B;
+            font-size: 12px;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .rera-link:hover {
+            background: rgba(139, 90, 43, 0.1);
+            text-decoration: underline;
+        }
+
+        .qr-section {
+            text-align: center;
+        }
+
+        .qr-label {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .qr-code {
+            width: 140px;
+            height: 140px;
+            border: 2px solid #ddd;
+            margin: 0 auto;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Progress bar for auto-close */
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: #8B5A2B;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+
+        /* Responsive */
+        /* @media (max-width: 768px) {
+            .rera-slide-panel {
+                width: 100%;
+                right: -100%;
+            }
+        } */
+    </style>
+</head>
+<body>
+    <!-- Demo Content -->
+    <div class="demo-content">
+        <h1>RERA Slide-in Popup Demo</h1>
+        <p>Click the "Click here for RERA details" button in the top-right corner to see the slide-in panel.</p>
+        <p>The panel will automatically close after 10 seconds, or you can scroll down to make it disappear, or click the close button.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        <p>Scroll down to test the scroll-to-close functionality...</p>
+        <br><br><br><br><br><br><br><br><br><br>
+        <p>Keep scrolling...</p>
+        <br><br><br><br><br><br><br><br><br><br>
+        <p>More content here to demonstrate scrolling behavior...</p>
+        <br><br><br><br><br><br><br><br><br><br>
+        <p>End of demo content. Try opening the RERA panel and scrolling to see it close automatically.</p>
+    </div>
+
+    <!-- RERA Button -->
+    <button class="rera-trigger" id="reraButton">Click here for<br>RERA details</button>
+
+    <!-- RERA Slide Panel -->
+    <div class="rera-slide-panel" id="reraPanel">
+        <div class="progress-bar" id="progressBar"></div>
+        
+        <div class="rera-content">
+            <div class="rera-flexLeft">
+            <div class="rera-title">MahaRERA registration numbers:</div>
+            <div class="rera-number">P51700047245</div>
+            <a href="https://maharera.maharashtra.gov.in/" class="rera-link" target="_blank">
+                https://maharera.maharashtra.gov.in/
+            </a>
+            </div>
+            <div class="qr-section">
+                <img src="assets/images/qr/qr.webp" alt="Qr Code" width="100" height="100" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const reraButton = document.getElementById('reraButton');
+        const reraPanel = document.getElementById('reraPanel');
+        const reraClose = document.getElementById('reraClose');
+        const progressBar = document.getElementById('progressBar');
+        
+        let autoCloseTimer = null;
+        let progressTimer = null;
+        let initialScrollPosition = 0;
+        let isOpen = false;
+
+        // Function to open panel
+        function openPanel() {
+            reraPanel.classList.add('active');
+            isOpen = true;
+            initialScrollPosition = window.scrollY;
+            reraButton.style.transform = `translateX(-${reraPanel.clientWidth}px) scale(0)`;
+            startAutoCloseTimer();
+        }
+
+        // Function to close panel
+        function closePanel() {
+            reraPanel.classList.remove('active');
+            isOpen = false;
+            clearAutoCloseTimer();
+            reraButton.style.transform = `translateX(0) scale(1)`;
+        }
+
+        // Auto close timer with progress bar
+        function startAutoCloseTimer() {
+            let progress = 0;
+            const duration = 10000; // 10 seconds
+            const interval = 100; // Update every 100ms
+            
+            progressTimer = setInterval(() => {
+                progress += interval;
+                const percentage = (progress / duration) * 100;
+                progressBar.style.width = percentage + '%';
+                
+                if (progress >= duration) {
+                    closePanel();
+                }
+            }, interval);
+        }
+
+        // Clear auto close timer
+        function clearAutoCloseTimer() {
+            if (progressTimer) {
+                clearInterval(progressTimer);
+                progressTimer = null;
+            }
+            progressBar.style.width = '0%';
+        }
+
+        // Event listeners
+        reraButton.addEventListener('click', function() {
+            if (!isOpen) {
+                openPanel();
+            }
+        });
+
+        // reraClose.addEventListener('click', function() {
+        //     closePanel();
+        // });
+
+        // Close on scroll
+        let scrollTimeout = null;
+        window.addEventListener('scroll', function() {
+            if (isOpen) {
+                const currentScroll = window.scrollY;
+                const scrollDifference = Math.abs(currentScroll - initialScrollPosition);
+                
+                // Close if scrolled more than 100px
+                if (scrollDifference > 100) {
+                    closePanel();
+                }
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isOpen) {
+                closePanel();
+            }
+        });
+
+        // Prevent panel from closing when interacting with it
+        reraPanel.addEventListener('mouseenter', function() {
+            if (isOpen) {
+                clearAutoCloseTimer();
+            }
+        });
+
+        reraPanel.addEventListener('mouseleave', function() {
+            if (isOpen) {
+                startAutoCloseTimer();
+            }
+        });
+    </script>
+</body>
+</html>

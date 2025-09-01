@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ivr Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+    }
+
+    /* ivr Container */
+    .ivr-container {
+        display: none;
+    }
+    .ivr {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #9d7f19; /* gold/brown shade */
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      color: #fff;
+      font-size: 14px;
+      z-index: 1000;
+    }
+
+    /* Each Item */
+    .ivr-item {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width:768px) {
+        .ivr-container {
+            display: block;
+        }
+    }
+  </style>
+</head>
+<body>
+<section class="ivr-container">
+  <div class="ivr">
+    <a href="#enquire" class="ivr-item">
+      <img src="/assets/images/icons/enquire.svg" alt="Enquire Now" loading="lazy" width="22" height="22">
+      Enquire
+    </a>
+    <a href="tel:+911234567890" class="ivr-item">
+      <img src="/assets/images/icons/call.svg" alt="Speak with the agent" loading="lazy" width="22" height="22">
+      Call
+    </a>
+    <a href="#chat" class="ivr-item">
+      <img src="/assets/images/icons/chat.svg" alt="Chat with the agent" loading="lazy" width="22" height="22">
+      Chat
+    </a>
+  </div>
+  </section>
+
+  <script>
+    // Example: Popup actions
+    document.querySelector('a[href="#enquire"]').addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("Enquiry form will open here!");
+    });
+
+    document.querySelector('a[href="#chat"]').addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("Chat window will open here!");
+    });
+  </script>
+
+</body>
+</html>
