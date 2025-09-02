@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Header</title>
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</noscript>
+
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com" media="print">
@@ -296,9 +300,9 @@ header.white .burgerMenu span {
         <nav>
             <img src="assets/images/logo/devlogo.webp" alt="Logo" class="headerLogo" />
             <span class="desktop-Ivr">
-                <button class="nav-MobileBtn"><img src="assets/images/icons/phoneIcoon.gif" width="30" height="30" loading="lazy"><span>+919876543210</span></button>
-                <button class="nav-WhatsappBtn"><img src="assets/images/icons/whatsappIcon.gif" width="30" height="30" loading="lazy"><span>Whatsapp</span></button>
-                <button class="MenuBtn">
+                <button class="nav-MobileBtn" aria-label="Speak with the advisor"><img src="assets/images/icons/phoneIcoon.gif" width="30" height="30" loading="lazy"><span>+919876543210</span></button>
+                <button class="nav-WhatsappBtn" aria-label="Chat with the advisor"><img src="assets/images/icons/whatsappIcon.gif" width="30" height="30" loading="lazy"><span>Whatsapp</span></button>
+                <button class="MenuBtn" aria-label="Open Menu Button">
                     <div class="mobMenu">
                         <div class="burgerMenu" id="burgerMenu">
                         <span></span>
@@ -369,8 +373,8 @@ header.white .burgerMenu span {
             <a href="#" class="nav-item popupTrigger" data-heading="Enquire Now">Brochure</a>
         </span>
         <span class="desktop-secondIvr">
-            <button class="nav-MobileBtn2"><img src="assets/images/icons/phoneblack.gif" width="25" height="25" loading="lazy"><span>+919876543210</span></button>
-            <button class="nav-WhatsappBtn2"><img src="assets/images/icons/whatsappblack.gif" width="25" height="25" loading="lazy"><span>Whatsapp</span></button>
+            <button class="nav-MobileBtn2" aria-label="Speak with the advisor"><img src="assets/images/icons/phoneblack.gif" width="25" height="25" loading="lazy" alt="call"><span>+919876543210</span></button>
+            <button class="nav-WhatsappBtn2" aria-label="Chat with the advisor"><img src="assets/images/icons/whatsappblack.gif" width="25" height="25" loading="lazy" alt="Chat on"><span>Whatsapp</span></button>
         </span>
     </div>
 </section>
@@ -489,7 +493,8 @@ header.white .burgerMenu span {
         <h2 class="section-heading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Amenities</h2>
         <p class="section-subheading" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">Preminum Facilities for your elevated Lifestyle</p>
         
-        <div class="amenities-wrapper siteVisitImage" data-aos data-aos-delay="100" data-aos-duration="1000">
+        <div class="amenities-wrapper ">
+            <div class="siteVisitImage" data-aos data-aos-delay="100" data-aos-duration="1000">
             <div class="amenities-track " id="amenitiesTrack" >
                 <!-- Only original images (no duplicates) -->
                 <div class="amenities-slide">
@@ -527,12 +532,13 @@ header.white .burgerMenu span {
                     <div class="amenities-text-overlay">Theatre</div>
                 </div>
             </div>
-            <div class="amenities-controlsContainer">
-            <button class="amenities-controls amenities-prev" id="amenitiesPrev">
-                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="amenities-controlsContainer" >
+            <button class="amenities-controls amenities-prev" id="amenitiesPrev" aria-label="View Previous Amenities">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="amenities-controls amenities-next" id="amenitiesNext">
-                <i class="fas fa-chevron-right"></i>
+            <button class="amenities-controls amenities-next" id="amenitiesNext" aria-label="View Next Amenities">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
             </div>
             <div style="text-align: center;margin: 1rem 0;">
@@ -548,20 +554,20 @@ header.white .burgerMenu span {
     <!-- Lightbox Modal -->
     <div class="amenities-lightbox" id="amenitiesLightbox">
         <div class="amenities-lightbox-content">
-            <button class="amenities-lightbox-close" id="amenitiesLightboxClose">
-                <i class="fas fa-times"></i>
+            <button class="amenities-lightbox-close" id="amenitiesLightboxClose" aria-label="Close Amenities Preview">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
             
-            <img class="amenities-lightbox-image" id="amenitiesLightboxImage" src="" alt="">
+            <img class="amenities-lightbox-image" id="amenitiesLightboxImage" src="" alt="" loading="lazy">
             
             <div class="amenities-lightbox-title" id="amenitiesLightboxTitle"></div>
             <div class="amenities-lightbox-counter" id="amenitiesLightboxCounter">1 / 6</div>
             <div class="amenities-lightbox-arrowControls">
-                <button class="amenities-lightbox-nav amenities-lightbox-prev" id="amenitiesLightboxPrev">
-                <i class="fas fa-chevron-left"></i>
+                <button class="amenities-lightbox-nav amenities-lightbox-prev" id="amenitiesLightboxPrev" aria-label="View Previous Amenities Preview">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="amenities-lightbox-nav amenities-lightbox-next" id="amenitiesLightboxNext">
-                <i class="fas fa-chevron-right"></i>
+            <button class="amenities-lightbox-nav amenities-lightbox-next" id="amenitiesLightboxNext" aria-label="View Next Amenities Preview">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
             </div>
         </div>
@@ -597,11 +603,11 @@ header.white .burgerMenu span {
                 
             </div>
             <div class="floor-controlsContainer">
-            <button class="floor-controls floor-prev" id="floorPrev">
-                <i class="fas fa-chevron-left"></i>
+            <button class="floor-controls floor-prev" id="floorPrev" aria-label="View Previous Floor Plan">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="floor-controls floor-next" id="floorNext">
-                <i class="fas fa-chevron-right"></i>
+            <button class="floor-controls floor-next" id="floorNext" aria-label="View Next Floor Plan">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
             </div>
             <div style="text-align: center;margin: 1rem 0;">
@@ -659,11 +665,11 @@ header.white .burgerMenu span {
                 </div>
             </div>
             <div class="gallery-controlsContainer">
-            <button class="gallery-controls gallery-prev" id="galleryPrev">
-                <i class="fas fa-chevron-left"></i>
+            <button class="gallery-controls gallery-prev" id="galleryPrev" aria-label="View Previous Gallery Image">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="gallery-controls gallery-next" id="galleryNext">
-                <i class="fas fa-chevron-right"></i>
+            <button class="gallery-controls gallery-next" id="galleryNext" aria-label="View Next Gallery Image">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
             </div>
             <div style="text-align: center;margin: 1rem 0;">
@@ -679,8 +685,8 @@ header.white .burgerMenu span {
     <!-- Lightbox Modal -->
     <div class="gallery-lightbox" id="galleryLightbox">
         <div class="gallery-lightbox-content">
-            <button class="gallery-lightbox-close" id="galleryLightboxClose">
-                <i class="fas fa-times"></i>
+            <button class="gallery-lightbox-close" id="galleryLightboxClose" aria-label="Close Gallery Image Preview">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
             
             <img class="gallery-lightbox-image" id="galleryLightboxImage" src="" alt="">
@@ -688,11 +694,11 @@ header.white .burgerMenu span {
             <div class="gallery-lightbox-title" id="galleryLightboxTitle"></div>
             <div class="gallery-lightbox-counter" id="galleryLightboxCounter">1 / 6</div>
             <div class="gallery-lightbox-arrowControls">
-                <button class="gallery-lightbox-nav gallery-lightbox-prev" id="galleryLightboxPrev">
-                <i class="fas fa-chevron-left"></i>
+                <button class="gallery-lightbox-nav gallery-lightbox-prev" id="galleryLightboxPrev" aria-label="View Previous Gallery Image">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="gallery-lightbox-nav gallery-lightbox-next" id="galleryLightboxNext">
-                <i class="fas fa-chevron-right"></i>
+            <button class="gallery-lightbox-nav gallery-lightbox-next" id="galleryLightboxNext" aria-label="View Next Gallery Image">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
             </div>
         </div>
@@ -756,11 +762,12 @@ header.white .burgerMenu span {
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
-            <div class="location-BtnContainer" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                <div class="location-BtnContainer" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                 <button class="locationBtn popupTrigger" data-heading="Enquire Now">Enquire Now</button>
             </div>
+            </div>
+            </div>
+            
         </div>
     </section>
 <!--About-->
@@ -827,9 +834,9 @@ Disclaimer: We're an authorized marketing channel partner. The provided content,
 
 <div class=footer-links>
 <div class=footer-links-container>
-<a href="Privacy-Policy.html" class=footer-link>Privacy Policy</a>
+<a href="Privacy-Policy.html" class=footer-link rel="noopener noreferrer">Privacy Policy</a>
 <span class=footer-separator>|</span>
-<a href="Terms-Conditions.html" class=footer-link>Terms & Conditions</a>
+<a href="Terms-Conditions.html" class=footer-link rel="noopener noreferrer">Terms & Conditions</a>
 </div>
 </div>
 </div>
@@ -838,21 +845,23 @@ Disclaimer: We're an authorized marketing channel partner. The provided content,
 <section  id="popupOverlay">
     <div class="popup-overlay" >
         <div class="popup-form">
-            <button class="close-btn" id="closeBtn">✕</button>
+            <button class="close-btn" id="closeBtn" aria-label="Close Popup">✕</button>
             
             <h2 class="form-title">Request a call back</h2>
             
-            <form id="callbackForm">
+            <form id="callbackForm ModalFormSlug2" data-tracking-id=form_2_popupForm class="popupModal-form popupForm">
+                        <input type="hidden" id="gclid_field" name="gclid_field" value="">
+
                 <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Enter Your Name" required>
+                    <input type="text" class="form-input form-name" placeholder="Enter Your Name" required>
                 </div>
                 
                 
                 <div class="form-group">
                     <div class="select-wrapper">
-                        <select class="form-select" required placeholder="Select Country Code">
+                        <select class="form-select form-country" required placeholder="Select Country Code">
                             <option value="+91" selected>India</option>
-                            <option value="india" selected>India</option>
+                            <option value="india">India</option>
                             <option value="usa">United States</option>
                             <option value="uk">United Kingdom</option>
                             <option value="canada">Canada</option>
@@ -865,19 +874,19 @@ Disclaimer: We're an authorized marketing channel partner. The provided content,
                 
                 <div class="form-group">
                     <div class="phone-group">
-                        <input type="tel" class="form-input phone-input" placeholder="Enter Mobile Number" required>
+                        <input type="tel" class="form-input phone-input form-number" placeholder="Enter Mobile Number" required>
                     </div>
                 </div>
                 
                 <div class="checkbox-group">
-                    <input type="checkbox" id="privacyCheckbox" checked required style="display: none;">
+                    <input type="checkbox" id="privacyCheckbox consent_checkbox" class="firstFormCheckbox" checked required style="display: none;">
                     <label for="privacyCheckbox" class="formControlsCheck">
                         I consent to the use of provided data in accordance with the <a
-                href=https://www.homesfy.co.in/privacy.html class="privacy-link">privacy policy</a>
+                href=https://www.homesfy.co.in/privacy.html class="privacy-link" rel="noopener noreferrer">privacy policy</a>
                     </label>
                 </div>
                 
-                <button type="submit" class="submit-btn">Submit</button>
+                <input type="submit" class="submit-btn siteVisit-submitButton btn" value="Submit" />
             </form>
         </div>
     </div>
@@ -907,7 +916,7 @@ Disclaimer: We're an authorized marketing channel partner. The provided content,
 
     <section class="ivr-container">
   <div class="ivr">
-    <a class="ivr-item popupTrigger" data-heading="Enquire Now">
+    <a class="ivr-item popupTrigger" data-heading="Enquire Now" href="#">
       <img src="/assets/images/icons/enquire.svg" alt="Enquire Now" loading="lazy" width="22" height="22">
       Enquire
     </a>
@@ -930,5 +939,7 @@ Disclaimer: We're an authorized marketing channel partner. The provided content,
     // mirror: true
   });
 </script>
+<script src="/assets/js/api.js" ></script>
+<script src="/assets/js/custom.js" ></script>
 </body>
 </html>
